@@ -51,7 +51,7 @@ class Login extends React.Component {
 									</div>
 
 									<div className="text-center text-lg-center mt-4 pt-2">
-										<button type="button" className="btn-lg color-button"
+										<button type="button" className="btn-lg color-button"git 
 										><FontAwesomeIcon icon={faRightToBracket} /> Iniciar sesión</button>
 
 										<div className="form-outline mb-3">
