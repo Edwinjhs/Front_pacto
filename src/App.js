@@ -6,6 +6,12 @@ import { Button } from 'react-bootstrap';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import Login from './components/login/login';
+import Editar_perfil from './components/editar_perfil/editar_perfil';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
+
+
 
 
 const App = () => {
@@ -17,10 +23,17 @@ const App = () => {
 
   return (
     <div className="App">
-        <Header />
-        <Login />
-        <Footer />
+
+
+        <BrowserRouter>
+          <Routes>
+            <Route element={<Login />} path="" ></Route>
+            <Route element={<Editar_perfil />} path="/editar_perfil" ></Route>
+         </Routes>
+        </BrowserRouter>
     </div>
+    
+        
   );
 
 }
