@@ -1,20 +1,25 @@
 import { faBars, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../img/cropped-logo_positivo.png';
+
+
+import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
 
 import React from 'react';
 
-class Header extends React.Component {
+class Header2 extends React.Component {
 
     render() {
 
         return (
+            
 
             <nav className="navbar navbar-expand-lg navbar-light bg-white border-nav-color">
+                
 
-                <div className="container px-5 py-3">
+                <div className="container px-5 py-3 espace">
 
                     <button
                         className="navbar-toggler"
@@ -63,8 +68,9 @@ class Header extends React.Component {
                             <a className="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/contacto/'>Contacto</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-color-header" href="/login" >Login</a>
+                            <a className="nav-link text-color-header text-decoration-none" href=''>Foro</a>
                             </li>
+                            
                         </ul>
 
                     </div>
@@ -73,17 +79,19 @@ class Header extends React.Component {
 
                     <div className="d-flex align-items-center">
 
-                        <FontAwesomeIcon icon={faUser} />
-                        <NavDropdown  id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action4"> icon d</NavDropdown.Item>
+                                    <FontAwesomeIcon icon={faUser} />
                                     <NavDropdown  id="navbarScrollingDropdown">
-                                        <NavDropdown.Item href="#action4"> Ajuste del nivel de contraste</NavDropdown.Item>
-                                        <NavDropdown.Item href="#action4"> Ajuste del tamaño de la letra</NavDropdown.Item> 
+                                        <NavDropdown.Item href="#action3">Nombre de usuario</NavDropdown.Item>
+                                        <NavDropdown.Item href="#action4"> @ </NavDropdown.Item>
+                                        <NavDropdown.Item href="#action4"> icon</NavDropdown.Item>
+                                        <NavDropdown  id="navbarScrollingDropdown">
+                                            <NavDropdown.Item href="#action4"> Ajuste del nivel de contraste</NavDropdown.Item>
+                                            <NavDropdown.Item href="#action4"> Ajuste del tamaño de la letra</NavDropdown.Item> 
+                                        </NavDropdown>
+                                    <NavDropdown.Divider />
+                                        <NavDropdown.Item href="/editar_perfil">Editar perfil</NavDropdown.Item>
+                                        <NavDropdown.Item href="/login">Cerrar sesión</NavDropdown.Item>
                                     </NavDropdown>
-                            <NavDropdown.Divider />
-                                <NavDropdown.Item href="/login">Iniciar sesión</NavDropdown.Item>
-                                <NavDropdown.Item href="/">Registrarse</NavDropdown.Item>
-                        </NavDropdown>
 
                         <form className="d-flex input-group w-auto">
                             <span className="ps-3">
@@ -91,10 +99,11 @@ class Header extends React.Component {
                             </span>
                         </form>
 
-
+                        
 
 
                     </div>
+
 
                 </div>
                 
@@ -106,4 +115,4 @@ class Header extends React.Component {
 
 }
 
-export default Header;
+export default Header2;

@@ -134,10 +134,10 @@ class Signup extends React.Component {
                                     </div>
                                 </div>
 
-                                <div class="control-group">
+                                <div class="control-group" >
 
                                     <div class="controls">
-                                        <button type="button" class="color-button-sign"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>
+                                        <button type="button"  class="color-button-sign"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>
                                     </div>
                                 </div>
                             </fieldset>

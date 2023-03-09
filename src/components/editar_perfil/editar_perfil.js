@@ -2,8 +2,11 @@ import React from 'react';
 import Logo from '../img/cropped-logo_positivo.png';
 import { faBars, faMagnifyingGlass, faRightToBracket, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from 'react-bootstrap/Button';
+
+
 import Footer from '../footer/footer';
-import Header from '../header/header';
+import Header2 from '../header2/header2';
 
 
 class Editar_perfil extends React.Component {
@@ -14,7 +17,7 @@ class Editar_perfil extends React.Component {
 
 
             <div>
-                <Header />
+                <Header2 />
 
 
                         <main role="main" className="flex-shrink-0 mt-5 mb-5">
@@ -133,15 +136,18 @@ class Editar_perfil extends React.Component {
                                                     </div>
                                                 </div>
                                             </form>
+                                            <br></br>
+
+                                            <Button variant="primary" size="lg" active>
+                                                Guardar
+                                            </Button>{' '}
+                                            <Button variant="secondary" size="lg" active>
+                                                Cancelar
+                                            </Button>
 
 
 
 
-
-
-
-
-                                        
 
 
                                     </form>
