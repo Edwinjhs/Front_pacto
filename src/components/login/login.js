@@ -11,7 +11,8 @@ class Login extends React.Component {
 	render() {
 
 		return (
-
+		 <div>
+			<Header />
 			<main role="main" className="flex-shrink-0 mt-5 mb-5">
 
 				<section className="">
@@ -69,6 +70,12 @@ class Login extends React.Component {
 				</section>
 
 			</main>
+
+			<Footer />
+
+		 </div>	
+
+			
 
 		)
 
