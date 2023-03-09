@@ -24,6 +24,7 @@ class Editar_perfil extends React.Component {
 						<div class="row d-flex justify-content-center align-items-center h-100">
 							<div class="col-md-9 col-lg-6 col-xl-5">
 								<img src="../../img/perfil.png" class="img-fluid" alt="Sample image" />
+                                
 							</div>
 							<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 								<form>
@@ -48,10 +49,7 @@ class Editar_perfil extends React.Component {
 
                                             <form>
                                                 <div class="row">
-                                                    <div class="col">
-                                                        <input type="email" class="form-control" placeholder="@"/>
-                                                         <label class="form-label" for="form3Example4">Correo electrónico</label>
-                                                    </div>
+
                                                     <div class="col">
                                                         <div class="form-group"> 
                                                             <select class="form-control" id="exampleFormControlSelect1">
@@ -73,8 +71,8 @@ class Editar_perfil extends React.Component {
                                             <form>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <input type="text" class="form-control" placeholder="Ingrese su ciudad"/>
-                                                        <label class="form-label" for="form3Example4">Ciudad</label>
+                                                        <input type="text" class="form-control" placeholder="Nombre de la entidad"/>
+                                                        <label class="form-label" for="form3Example4">Nombre de la entidad</label>
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group">                                                           
@@ -90,17 +88,57 @@ class Editar_perfil extends React.Component {
                                             <form>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <input type="text" class="form-control" placeholder="Nombre de la entidad"/>
-                                                        <label class="form-label" for="form3Example4">Nombre de la entidad</label>
+                                                        <input type="text" class="form-control" placeholder="Contacto"/>
+                                                        <label class="form-label" for="form3Example4">Contacto</label>
                                                     </div>
                                                     <div class="col">
                                                     <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Ingrese su telefono"/>
-                                                            <label for="exampleFormControlTextarea1">Contacto</label>
+                                                            <input type="text" class="form-control" placeholder="Ingrese su Ciudad"/>
+                                                            <label for="exampleFormControlTextarea1">Ciudad</label>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </form>
+
+
+                                            <form>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input type="text" class="form-control" placeholder="Ingrese su departamento"/>
+                                                        <label class="form-label" for="form3Example4">Departamento</label>
+                                                    </div>
+                                                    <div class="col">
+                                                    <div class="form-group">
+                                                            <input type="text" class="form-control" placeholder="Ingrese su País"/>
+                                                            <label for="exampleFormControlTextarea1">País</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+
+                                            <form>
+                                                <div class="row">
+
+                                                    <div class="col">
+                                                        <div class="form-group"> 
+                                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                                <option>Seleccionar</option>
+                                                                <option>Conocimientos</option>
+                                                                <option>Buenas practicás</option>
+                                                                <option>Casos exitosos</option>
+                                                            </select>
+                                                            <label for="exampleFormControlSelect1">Intereses de conocimiento</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+
+
+
+
+
 
 
                                         

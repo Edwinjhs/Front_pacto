@@ -1,17 +1,14 @@
 import React, { Component, useEffect } from 'react';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './styles/App.css';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
-import Login from './components/login/login';
+//import Login from './components/login/login';
+import Signup from './components/signup/signup';
 import Editar_perfil from './components/editar_perfil/editar_perfil';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-
-
-
 
 
 const App = () => {
@@ -24,16 +21,14 @@ const App = () => {
   return (
     <div className="App">
 
+      <BrowserRouter>
+        <Routes>
+          <Route path="" element={<Signup />}></Route>
+          <Route path="/editar_perfil" element={<Editar_perfil />}></Route>
+        </Routes>
+      </BrowserRouter>
 
-        <BrowserRouter>
-          <Routes>
-            <Route element={<Login />} path="" ></Route>
-            <Route element={<Editar_perfil />} path="/editar_perfil" ></Route>
-         </Routes>
-        </BrowserRouter>
     </div>
-    
-        
   );
 
 }

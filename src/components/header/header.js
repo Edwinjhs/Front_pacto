@@ -11,12 +11,12 @@ class Header extends React.Component {
 
         return (
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-white border-nav-color">
+            <nav className="navbar navbar-expand-lg navbar-light bg-white border-nav-color">
 
-                <div class="container px-5 py-3">
+                <div className="container px-5 py-3">
 
                     <button
-                        class="navbar-toggler"
+                        className="navbar-toggler"
                         type="button"
                         data-mdb-toggle="collapse"
                         data-mdb-target="#navbarSupportedContent"
@@ -28,9 +28,9 @@ class Header extends React.Component {
                     </button>
 
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-                        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+                        <a className="navbar-brand mt-2 mt-lg-0" href="#">
                             <img
                                 src={Logo}
                                 height="60"
@@ -39,30 +39,30 @@ class Header extends React.Component {
                             />
                         </a>
 
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
-                            <li class="nav-item">
-                                <a class="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/'>Inicio</a>
+                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                            <li className="nav-item">
+                                <a className="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/'>Inicio</a>
                             </li>
-                            <li class="nav-item">
-                            <a class="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/2022/11/01/sobre-nosotros/'>Sobre nosotros</a>
+                            <li className="nav-item">
+                            <a className="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/2022/11/01/sobre-nosotros/'>Sobre nosotros</a>
                             </li>
-                            <li class="nav-item">
-                            <a class="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/2022/12/26/modelo-territorial/'>Modelo Territorial</a>
+                            <li className="nav-item">
+                            <a className="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/2022/12/26/modelo-territorial/'>Modelo Territorial</a>
                             </li>
-                            <li class="nav-item">
-                            <a class="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/2022/11/01/que-hacemos/'>Lo que hacemos</a>
+                            <li className="nav-item">
+                            <a className="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/2022/11/01/que-hacemos/'>Lo que hacemos</a>
                             </li>
-                            <li class="nav-item">
-                            <a class="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/2022/11/01/conocimiento/'>Conocimiento</a>
+                            <li className="nav-item">
+                            <a className="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/2022/11/01/conocimiento/'>Conocimiento</a>
                             </li>
-                            <li class="nav-item">
-                            <a class="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/2022/11/01/escuela-virtual/'>Escuela Virtual</a>
+                            <li className="nav-item">
+                            <a className="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/2022/11/01/escuela-virtual/'>Escuela Virtual</a>
                             </li>
-                            <li class="nav-item">
-                            <a class="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/contacto/'>Contacto</a>
+                            <li className="nav-item">
+                            <a className="nav-link text-color-header text-decoration-none" href='https://www.pactodeproductividad.com/contacto/'>Contacto</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-color-header" href="#">Login</a>
+                            <li className="nav-item">
+                                <a className="nav-link text-color-header" href="#">Login</a>
                             </li>
                         </ul>
 
@@ -70,15 +70,15 @@ class Header extends React.Component {
 
 
 
-                    <div class="d-flex align-items-center">
+                    <div className="d-flex align-items-center">
 
-                        <a class="link-secondary me-3" href="#">
-                            <i class="fas fa-shopping-cart"></i>
+                        <a className="link-secondary me-3" href="#">
+                            <i className="fas fa-shopping-cart"></i>
                         </a>
 
-                        <div class="dropdown">
+                        <div className="dropdown">
                             <a
-                                class="dropdown-toggle d-flex align-items-center hidden-arrow text-secondary"
+                                className="dropdown-toggle d-flex align-items-center hidden-arrow text-secondary"
                                 href="#"
                                 id="navbarDropdownMenuAvatar"
                                 role="button"
@@ -88,22 +88,22 @@ class Header extends React.Component {
                                 <FontAwesomeIcon icon={faUser} />
                             </a>
                             <ul
-                                class="dropdown-menu dropdown-menu-end"
+                                className="dropdown-menu dropdown-menu-end"
                                 aria-labelledby="navbarDropdownMenuAvatar"
                             >
                                 <li>
-                                    <a class="dropdown-item" href="#">My profile</a>
+                                    <a className="dropdown-item" href="#">My profile</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Settings</a>
+                                    <a className="dropdown-item" href="#">Settings</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#">Logout</a>
+                                    <a className="dropdown-item" href="#">Logout</a>
                                 </li>
                             </ul>
                         </div>
-                        <form class="d-flex input-group w-auto">
-                            <span class="ps-3">
+                        <form className="d-flex input-group w-auto">
+                            <span className="ps-3">
                                 <FontAwesomeIcon icon={faMagnifyingGlass} />
                             </span>
                         </form>

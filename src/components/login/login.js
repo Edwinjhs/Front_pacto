@@ -15,51 +15,51 @@ class Login extends React.Component {
 			<Header />
 			<main role="main" className="flex-shrink-0 mt-5 mb-5">
 
-				<section class="">
-					<div class="container h-custom">
-						<div class="row d-flex justify-content-center align-items-center h-100">
-							<div class="col-md-9 col-lg-6 col-xl-5">
-								<img src={Logo} class="img-fluid" alt="Sample image" />
+				<section className="">
+					<div className="container h-custom">
+						<div className="row d-flex justify-content-center align-items-center h-100">
+							<div className="col-md-9 col-lg-6 col-xl-5">
+								<img src={Logo} className="img-fluid" alt="Sample image" />
 							</div>
-							<div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+							<div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 								<form>
-									<div class="d-flex flex-row align-items-center justify-content-center mb-4">
-										<h3 class="">Inicio de sesión</h3>
+									<div className="d-flex flex-row align-items-center justify-content-center mb-4">
+										<h3 className="">Inicio de sesión</h3>
 									</div>
 
-									<div class="form-outline mb-4">
-										<input type="email" id="form3Example3" class="form-control form-control-lg"
-											placeholder="Introduzca una dirección de correo electrónico válida" />
-										<label class="form-label" for="form3Example3">Correo electrónico</label>
+									<div className="form-outline mb-4">
+										<label className="form-label fw-bolder d-flex justify-content-start" for="email">Correo electrónico</label>
+										<input type="email" id="email" className="form-control form-control-lg fs-6 bg-light"
+											placeholder="Introduzca una dirección de correo electrónico válida." />
 									</div>
 
 
-									<div class="form-outline mb-3">
-										<input type="password" id="form3Example4" class="form-control form-control-lg"
-											placeholder="Introducir la contraseña" />
-										<label class="form-label" for="form3Example4">Contraseña</label>
+									<div className="form-outline mb-3">
+										<label className="form-label fw-bolder d-flex justify-content-start" for="password">Contraseña</label>
+										<input type="password" id="password" className="form-control form-control-lg fs-6 bg-light"
+											placeholder="Introduzca la contraseña." />
 									</div>
 
-									<div class="d-flex justify-content-between align-items-center">
+									<div className="d-flex justify-content-between align-items-center">
 
-										<div class="form-check mb-0">
-											<input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-											<label class="form-check-label" for="form2Example3">
+										<div className="form-check mb-0">
+											<input className="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
+											<label className="form-check-label" for="form2Example3">
 												Recordar contraseña
 											</label>
 										</div>
 
 									</div>
 
-									<div class="text-center text-lg-center mt-4 pt-2">
-										<button type="button" class="btn btn-primary btn-lg"
+									<div className="text-center text-lg-center mt-4 pt-2">
+										<button type="button" className="btn-lg color-button"git 
 										><FontAwesomeIcon icon={faRightToBracket} /> Iniciar sesión</button>
 
-										<div class="form-outline mb-3">
-											<a href="#!" class="text-body">¿Olvidó la contraseña?</a>
+										<div className="form-outline mb-3">
+											<a href="#!" className="text-body">¿Olvidó la contraseña?</a>
 										</div>
-										<p class="small fw-bold mt-2 pt-1 mb-0">¿No tiene una cuenta?</p>
-										<button type="button" class="btn btn-primary btn-lg"
+										<p className="small fw-bold mt-2 pt-1 mb-0">¿No tiene una cuenta?</p>
+										<button type="button" className="btn-lg color-button"
 										><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>
 									</div>
 
