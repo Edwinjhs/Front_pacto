@@ -4,6 +4,7 @@ import { faBars, faMagnifyingGlass, faRightToBracket, faUser, faUserPlus } from 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Footer from '../footer/footer';
 import Header from '../header/header';
+import Button from 'react-bootstrap/Button';
 
 
 class Login extends React.Component {
@@ -58,9 +59,10 @@ class Login extends React.Component {
 										<div className="form-outline mb-3">
 											<a href="#!" className="text-body">¿Olvidó la contraseña?</a>
 										</div>
-										<p className="small fw-bold mt-2 pt-1 mb-0">¿No tiene una cuenta?</p>
-										<button type="button" className="btn-lg color-button"
+										<p className="small fw-bold mt-2 pt-1 mb-0" >¿No tiene una cuenta?</p>
+										<button type="button"  className="btn-lg color-button" 
 										><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>
+										
 									</div>
 
 								</form>
