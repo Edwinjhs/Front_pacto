@@ -5,7 +5,8 @@ import axios from 'axios';
 import { Button } from 'react-bootstrap';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
-import Login from './components/login/login';
+//import Login from './components/login/login';
+import Signup from './components/signup/signup';
 
 
 const App = () => {
@@ -18,7 +19,7 @@ const App = () => {
   return (
     <div className="App">
         <Header />
-        <Login />
+        <Signup />
         <Footer />
     </div>
   );
