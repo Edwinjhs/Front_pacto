@@ -1,14 +1,12 @@
 import React, { Component, useEffect } from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
-import logo from './logo.svg';
 import './styles/App.css';
 import axios from 'axios';
-import { Button } from 'react-bootstrap';
-import Header from './components/header/header';
-import Footer from './components/footer/footer';
+
 import Login from './components/login/login';
 import Signup from './components/signup/signup';
 import Editar_perfil from './components/editar_perfil/editar_perfil';
+import Restablecer_contraseña from './components/restablecer_contraseña/restablecer_contraseña';
 
 
 const App = () => {
@@ -26,6 +24,7 @@ const App = () => {
           <Route path="/" element={<Signup />}></Route>
           <Route path="/editar_perfil" element={<Editar_perfil />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/restablecer_contraseña" element={<Restablecer_contraseña />}></Route>
         </Routes>
       </BrowserRouter>
 
