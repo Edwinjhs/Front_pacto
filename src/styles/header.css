@@ -1,8 +1,12 @@
 .text-color-header {
     color: #23282D;
-    font-weight: 600;
-}
-
-.border-nav-color {
+    font-weight: 5px;
+    font-size: 15.4px;
+ }
+ 
+ 
+ .border-nav-color {
     border-bottom: 2px solid #006186;
-}
+ }
+ 
+

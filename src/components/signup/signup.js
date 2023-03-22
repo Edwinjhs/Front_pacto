@@ -1,29 +1,12 @@
 import React from 'react';
-
-
-import Nav from 'react-bootstrap/Nav';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 
-
-
-
-
-
-
-
-
-
-
-
 class Signup extends React.Component {
-
 
    render() {
 
-
        return (
-
 
            <div>
                <Header/>
