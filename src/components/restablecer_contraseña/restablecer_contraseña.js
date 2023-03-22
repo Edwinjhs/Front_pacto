@@ -19,23 +19,23 @@ class Restablecer_contraseña extends React.Component {
                             <div class="container h-custom">
                                 <div class="row d-flex justify-content-center align-items-center h-100">
                                     
-                                    <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                           
                                         <form>
-                                            <div class="d-flex flex-row align-items-center justify-content-center mb-4">
-                                                <h3 class="">Restablecer contraseña</h3>
+                                            <div class="mb-5">
+                                                <h1 class="text-center">Restablecer contraseña</h1>
                                             </div>
 
-                                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                                <Form.Label>Ingrese el correo electrónico con el cual se registro</Form.Label>
-                                                <Form.Control type="email" placeholder="Ingrese su correo electrónico" />  
+                                            <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
+                                                <Form.Label>Ingrese el correo electrónico con el cual se registro:</Form.Label>
+                                                <Form.Control type="email" placeholder="Ingrese un correo electrónico valido" />  
                                             </Form.Group>
 
-                                            <form>
-                                                <Button variant="primary" size="lg" active> Enviar nueva contraseña </Button>   
+                                            <form className='mt-5'>
+                                                <Button variant="primary" size="lg" active>Enviar nueva contraseña</Button>   
                                             </form>
 
                                         </form>
-                                    </div>
+                                
                                 </div>
                             </div>
                         </section>
