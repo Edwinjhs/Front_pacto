@@ -23,9 +23,6 @@ class Header extends React.Component {
                     <FontAwesomeIcon icon={faBars} />
                 </button>
 
-
-
-
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <a className="navbar-brand mt-2 mt-lg-0" href="#">
                         <img
@@ -35,9 +32,6 @@ class Header extends React.Component {
                             loading="lazy"
                         />
                     </a>
-
-
-
 
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
                         <li className="nav-item">
@@ -66,40 +60,24 @@ class Header extends React.Component {
                     </ul>
                 </div>
 
-
-
-
                 <div className="d-flex align-items-center">
                     <FontAwesomeIcon icon={faUser} />
                     <NavDropdown  id="navbarScrollingDropdown">
                         <NavDropdown.Item href="/login">Iniciar sesión</NavDropdown.Item>
                         <NavDropdown.Item href="/register">Registrarse</NavDropdown.Item>
                     </NavDropdown>
-
-
                 </div>
-
 
                 <div className="d-flex align-items-center space">
-
-
                      <FontAwesomeIcon icon={faUniversalAccess} />
                     <NavDropdown  id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action4"> </NavDropdown.Item>
-                                <NavDropdown.Item href="#action4"> Ajuste del nivel de contraste</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4"> Ajuste del tamaño de la letra</NavDropdown.Item>
-
-
+                        <NavDropdown.Item href="#action4"> Ajuste del nivel de contraste</NavDropdown.Item>
+                        <NavDropdown.Item href="#action4"> Ajuste del tamaño de la letra</NavDropdown.Item>
                     </NavDropdown>
-
-
                 </div>
-
-
-
-
             </div>         
         </nav>
+        
         )
 
     }
