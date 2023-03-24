@@ -3,7 +3,6 @@ import Logo from '../img/cropped-logo_positivo.png';
 import { faRightToBracket, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
-import { navigate } from '@reach/router';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import axios from 'axios';
@@ -28,9 +27,6 @@ function handleLoginFormSubmit(event) {
 			}
 		}).then(response => {
 			console.log(response);
-			if (response.status === 200) {
-				navigate('../../components/signup/signup');
-			}
 		}).catch(error => {
 			console.log(error);
 		});
@@ -39,6 +35,7 @@ function handleLoginFormSubmit(event) {
 	// En este ejemplo, se llama al endpoint /token para autenticar al usuario y obtener el token. 
 	// Luego, se extrae el token de la respuesta y se utiliza en una solicitud GET al endpoint /api/users/me. 
 	// El token se incluye en el encabezado Authorization con el prefijo "Bearer".
+
 class Login extends React.Component {
 	render() {
 		return (
