@@ -1,0 +1,28 @@
+.mw-image {
+    max-width: 10% !important;
+}
+
+.color-corp {
+    color: #006186 !important;
+}
+
+.color-corp:hover {
+    color: #006186 !important;
+}
+
+.mw-image-nav-left {
+    max-width: 10% !important;
+}
+
+.mw-icon-nav-left {
+    max-width: 10% !important;
+}
+
+.mw-icon-nav-right {
+    max-width: 20% !important;
+}
+
+.mw-icon-nav-right-sug {
+    max-width: 25% !important;
+}
+

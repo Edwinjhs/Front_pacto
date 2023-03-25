@@ -10,7 +10,7 @@ class Header_post extends React.Component {
 
         return (
             <nav className="navbar navbar-expand-lg navbar-light bg-white border-nav-color">
-                <div className="container px-5 py-3">
+                <div className="container-fluid px-5 py-3">
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -24,7 +24,7 @@ class Header_post extends React.Component {
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <a className="navbar-brand mt-2 mt-lg-0" href="#">
+                        <a className="navbar-brand mt-2 mt-lg-0" href="https://www.pactodeproductividad.com/">
                             <img
                                 src={Logo}
                                 height="60"

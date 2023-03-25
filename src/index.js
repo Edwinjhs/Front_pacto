@@ -5,10 +5,12 @@ import './styles/footer.css';
 import './styles/header.css';
 import './styles/login.css';
 import './styles/signup.css';
+import './styles/home.css';
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 // import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';// Importing the Bootstrap 5 CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
