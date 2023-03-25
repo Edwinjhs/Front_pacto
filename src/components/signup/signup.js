@@ -1,10 +1,54 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import Avatar from '../img/perfil.png';
+import axios from 'axios';
 
-class Editar_perfil extends React.Component {
+function Registro() {
+
+    const [name_user, setName] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [city, setCity] = useState('');
+    const [entidad, setEntidad] = useState('');
+    const [hashed_password, setHashed_password] = useState('');
+    const [cohabitation_agreement, setCohabitation_agreement] = useState('');
+    const [status, setStatus] = useState('');
+    const [description, setDescription] = useState('');
+    const [knowledge_interests, setKnowledge_interests] = useState('');
+    const [forgot_password, setForgot_password] = useState('');
+    const [image_profile, setImage_profile] = useState('');
+    const [phone_number, setPhone_number] = useState('');
+    // const [typesActors, setTypesActors] = useState([]);
+
+    // useEffect(() => {
+    //     axios.get("http://localhost:8000/api/typeactor/get")
+    //     .then((response) => {
+    //         setTypesActors(response.data);
+    //     });
+    // }, []);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const form_data = new FormData(form);
+        axios.post('http://localhost:8000/api/user/post', form_data)
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    };
+
+
+    
+}
+
+class Signup extends React.Component {
 
     render() {
 
@@ -39,17 +83,17 @@ class Editar_perfil extends React.Component {
                                                 <div className='row'>
                                                     <div class="col text-start">
                                                         <label className="form-label fw-bold" for="form3Example4">Seleccione un foto de perfil:</label>
-                                                        <input type="file" className="form-control" placeholder="Inserte sus nombres" />
+                                                        <input type="file" className="form-control" placeholder="Inserte sus nombres" name="image_profile" />
                                                     </div>
                                                 </div>
                                                 <div className="row text-start">
                                                     <div className="col">
                                                         <label className="form-label fw-bold" for="form3Example4">Nombres:</label>
-                                                        <input type="text" className="form-control" placeholder="Inserte sus nombres" />
+                                                        <input type="text" className="form-control" placeholder="Inserte sus nombres" name="name_user"/>
                                                     </div>
                                                     <div className="col">
                                                         <label className="form-label fw-bold" for="form3Example4">Apellidos:</label>
-                                                        <input type="text" className="form-control" placeholder="Inserte sus apellidos" />
+                                                        <input type="text" className="form-control" placeholder="Inserte sus apellidos" name="lastname" />
                                                     </div>
                                                 </div>
                                             </form>
@@ -61,13 +105,9 @@ class Editar_perfil extends React.Component {
                                                             <label className='form-label fw-bold' for="exampleFormControlSelect1">Tipo de actor social:</label>
                                                             <select className="form-control" id="exampleFormControlSelect1">
                                                                 <option className='#'>Seleccione una opción</option>
-                                                                <option>Organización de personas con discapacidad</option>
-                                                                <option>Empresas</option>
-                                                                <option>Entidades de formación</option>
-                                                                <option>Entidad de intermediación laboral</option>
-                                                                <option>Entidad prestadora de servicios</option>
-                                                                <option>Entidad territorial</option>
-                                                                <option>Academia</option>
+                                                                {/* {typesActors.map((typeActor) => (
+                                                                    <option name={typeActor.id}>{typeActor.type_actor}</option>
+                                                                ))} */}
                                                             </select>
                                                         </div>
                                                     </div>
@@ -160,4 +200,4 @@ class Editar_perfil extends React.Component {
 
 }
 
-export default Editar_perfil;
+export default Signup;

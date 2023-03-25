@@ -5,6 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 
+
 class Restablecer_contraseña extends React.Component {
 	render() {
 		return (

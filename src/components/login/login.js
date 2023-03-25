@@ -26,6 +26,10 @@ function handleLoginFormSubmit(event) {
 			'Authorization': `Bearer ${token}`
 			}
 		}).then(response => {
+			if (response.status === 200) {
+				// Update the current page's location
+				window.location.href = '/home';
+			}
 			console.log(response);
 		}).catch(error => {
 			console.log(error);
@@ -73,7 +77,7 @@ class Login extends React.Component {
 												<a href="/restablecer_contraseña" className="text-body">¿Olvidó la contraseña?</a>
 											</div>
 											<p className="small fw-bold mt-2 pt-1 mb-0">¿No tiene una cuenta?</p>
-											<button type="button" id="btn-login"  className="btn-lg color-button"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>											
+											<button href="/signup" type="button" id="btn-login"  className="btn-lg color-button"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>											
 										</div>
 									</form>
 								</div>
