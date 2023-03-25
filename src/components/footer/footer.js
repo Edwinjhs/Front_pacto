@@ -23,9 +23,9 @@ class Footer extends React.Component {
               </ul>
             </div>
 
-            <div className="col-md-6 mb-4 mb-md-0 d-flex justify-content-end">
+            <div className="col-md-6 mb-4 mb-md-0 justify-content-end">
 
-              <ul className="list-unstyled list-group list-group-horizontal ">
+              <ul className="list-unstyled list-group list-group-horizontal">
                 <li className='m-2'>
                   <a href="#!" className="text-white"><SocialIcon url="https://www.instagram.com/pactodeproductividad/" style={{ height: 38, width: 38 }} fgColor='#ffffff'/></a>
                 </li>
