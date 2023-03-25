@@ -10,28 +10,19 @@ class Editar_perfil extends React.Component {
 
         return (
             <div>
-                <Header2 />
+                
 
                 <main role="main" className="flex-shrink-0 mt-5 mb-5">
                     <section className="">
                         <div className="container h-custom">
                             <div className="row d-flex justify-content-center align-items-center h-100">
 
-                                <div className="col-md-8 col-lg-7 offset-xl-1">
+                                <div className="">
                                     <form>
-                                        <div className="mb-4 row">
-                                            <div className='col'>
-                                                <h3 className="text-start fw-bold">Actualizar perfil</h3>
-                                            </div>
-                                            <div className='col text-end'>
-                                                <Button className='' variant="primary" size="l" > X </Button>
-                                            </div>
-                                        </div>
-
                                         <form>
                                             <form>
-                                                <h4 className='fw-bold'>Foto de perfil</h4>
-                                                <div className='mb-4 mt-4'>
+                                                <h4 className='fw-bold text-center'>Foto de perfil</h4>
+                                                <div className='mb-4 mt-4 text-center'>
                                                     <img
                                                         src={Avatar}
                                                         height="100"
@@ -142,11 +133,6 @@ class Editar_perfil extends React.Component {
                                                     </div>
                                                 </div>
                                             </form>
-
-                                            <br></br>
-
-                                            <Button className='m-2' variant="primary" size="lg" > Guardar </Button>
-                                            <Button className='m-2' variant="secondary" size="lg" > Cancelar </Button>
                                         </form>
                                     </form>
                                 </div>
@@ -154,7 +140,7 @@ class Editar_perfil extends React.Component {
                         </div>
                     </section>
                 </main>
-                <Footer />
+                
             </div>
 
         )
