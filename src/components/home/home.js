@@ -1,22 +1,24 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap'
 import Footer from '../footer/footer';
 import Header_post from '../header_post/header_post';
 import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
+import ModalLogin from '../modal_perfil/modal-profile';
 
 
+const Home = () => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
 
-class Home extends React.Component {
-
-
-    render() {
-
-
-        return (
+    return (
+        <>
             <div>
                 <Header_post />
 
@@ -29,14 +31,11 @@ class Home extends React.Component {
                                 </div>
                                 <div class="d-flex align-items-center text-start mb-3">
                                     <img class="mw-image-nav-left rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
-                                    {/* <div class="ms-2">
-                                        <button type="button" class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
-                                            
-                                            <p className='mb-0 fw-bold'>Andres Felipe Rodriguez Lamus</p>
+                                    <div class="ms-2">
+                                        <button type="button" class="my-0 mx-0 bg-body border-0 px-0 text-start" onClick={handleShow}>
+                                            <p className='mb-0 fw-bold'>Andrés Felipe Rodríguez Lamus</p>
                                         </button>
-                                        
-                                    </div> */}
-
+                                    </div>
                                 </div>
                                 <div class="d-flex align-items-center text-start mb-3">
                                     <FontAwesomeIcon class="mw-icon-nav-left" icon={faComments} />
@@ -381,10 +380,9 @@ class Home extends React.Component {
 
                 <Footer />
             </div>
-
-        )
-
-    }
+            <ModalLogin show={show} handleClose={handleClose} />
+        </>
+    )
 
 }
 
