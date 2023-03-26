@@ -1,11 +1,10 @@
 
 import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap'
 import Footer from '../footer/footer';
 import Header_post from '../header_post/header_post';
 import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComments, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faComments, faFile, faImage, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
 import ModalLogin from '../modal_perfil/modal-profile';
 
 
@@ -62,7 +61,47 @@ const Home = () => {
                                             <div class="d-flex align-items-center text-start">
                                                 <img class="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div class="ms-2">
-                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andres Felipe Rodriguez Lamus</p></a>
+                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form>
+                                        <div class="card-body text-start d-flex align-items-center">
+                                            <input class="card-body text-start d-flex align-items-center border-active-none" type="text" placeholder='¿Qué estas pensando?' />
+                                        </div>
+                                    </form>
+                                    <hr className='m-0' />
+                                    <div class="">
+                                        <div class="d-flex justify-content-start post-actions my-1 me-0">
+                                            {/* <a href="javascript:;" class="d-flex align-items-center text-muted text-decoration-none color-corp mx-auto">
+                                                <FontAwesomeIcon class="mw-icon-post color-corp" icon={faImage} />
+                                                <p class="d-none d-md-block ms-2 mb-0 align-items-center">Añadir imagen</p>
+                                            </a> */}
+                                            <button type='button' class="btn btn-link text-decoration-none text-muted fs-6 mx-0 my-0 button-size-l border-active-none">
+                                                <FontAwesomeIcon class="mw-icon-post color-corp" icon={faImage} /> Enviar mensaje
+                                            </button>
+                                            <button type='button' class="btn btn-link text-decoration-none text-muted fs-6 mx-0 my-0 button-size-l border-active-none">
+                                                <FontAwesomeIcon class="mw-icon-post color-corp" icon={faVideo} /> Añadir video
+                                            </button>
+                                            <button type='button' class="btn btn-link text-decoration-none text-muted fs-6 mx-0 my-0 button-size-l border-active-none">
+                                                <FontAwesomeIcon class="mw-icon-file color-corp" icon={faFile} /> Añadir archivo
+                                            </button>
+                                            <div className='d-grid col-4 my-1 justify-content-end'>
+                                                <button type='button' class="btn btn-primary fs-6">
+                                                    Publicar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card rounded mt-3">
+                                    <div class="card-header">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div class="d-flex align-items-center text-start">
+                                                <img class="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
+                                                <div class="ms-2">
+                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
                                                     <p class="mb-0 text-muted">Hace 40 minutos</p>
                                                 </div>
                                             </div>
@@ -131,7 +170,7 @@ const Home = () => {
                                             <div class="d-flex align-items-center text-start">
                                                 <img class="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div class="ms-2">
-                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andres Felipe Rodriguez Lamus</p></a>
+                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
                                                     <p class="mb-0 text-muted">Hace 1 minuto</p>
                                                 </div>
                                             </div>
