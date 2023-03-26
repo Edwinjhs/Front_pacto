@@ -5,6 +5,7 @@ import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faFile, faImage, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
 import ModalLogin from '../modal_perfil/modal-profile';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
