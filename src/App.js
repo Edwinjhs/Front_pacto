@@ -1,9 +1,10 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import './styles/App.css';
 import axios from 'axios';
-
 import Login from './components/login/login';
+import Perfil from './components/perfil/perfil';
+import Dashboard from './components/dashboard/dashboard';
 import Home from './components/home/home';
 import Signup from './components/signup/signup';
 import Editar_perfil from './components/editar_perfil/editar_perfil';
@@ -26,6 +27,8 @@ const App = () => {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/restablecer_contraseña" element={<Restablecer_contraseña />}></Route>
           <Route path="/home" element={<Home />}></Route>
+          <Route path="/perfil" element={<Perfil />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
       </BrowserRouter>
 

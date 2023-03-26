@@ -31,7 +31,7 @@ class Editar_perfil extends React.Component {
                                                     />
                                                 </div>
                                                 <div className='row'>
-                                                    <div class="col text-start">
+                                                    <div className="col text-start">
                                                         <label className="form-label fw-bold" for="form3Example4">Seleccione un foto de perfil:</label>
                                                         <input type="file" className="form-control" placeholder="Inserte sus nombres" />
                                                     </div>
