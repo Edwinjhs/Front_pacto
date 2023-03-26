@@ -10,7 +10,7 @@ class Restablecer_contraseña extends React.Component {
 	render() {
 		return (
             <div>
-                <Header/>
+                <Header />
                     <main role="main" className="flex-shrink-0 mt-5 mb-5">
                         <section class="">
                             <div class="container h-custom">
