@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Footer from '../footer/footer';
 import Header_post from '../header_post/header_post';
-import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComments, faDashboard, faFile, faImage, faLocationDot, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { faComments, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 
 const Dashboard = () => {

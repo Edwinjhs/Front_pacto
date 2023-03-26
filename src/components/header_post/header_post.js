@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Logo from '../img/cropped-logo_positivo.png';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Header_post extends React.Component {
 
@@ -20,7 +21,7 @@ class Header_post extends React.Component {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <FontAwesomeIcon icon={faBars} />
+                        <FontAwesomeIcon className="color-icon-l" icon={faBars} />
                     </button>
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -34,12 +35,14 @@ class Header_post extends React.Component {
                         </a>
                     </div>
                     <div>
-                        <button
-                            className="btn btn-link ms-3 text-dark"
-                            type="button"
-                        >
-                            <FontAwesomeIcon icon={faHouse} size="xl" />
-                        </button>
+                        <Link to="/home">
+                            <button
+                                className="btn btn-link ms-3 text-dark"
+                                type="button"
+                            >
+                                <FontAwesomeIcon className="color-icon-l" icon={faHouse} size="xl" />
+                            </button>
+                        </Link>
                     </div>
 
                     <div class="input-group rounded ms-4 me-5">
@@ -53,7 +56,7 @@ class Header_post extends React.Component {
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item me-2">
                             <div className="d-flex align-items-center">
-                                <FontAwesomeIcon icon={faUser} size="xl" />
+                                <FontAwesomeIcon className="color-icon-l" icon={faUser} size="xl" />
                                 <NavDropdown id="navbarScrollingDropdown">
                                     <NavDropdown.Item href="/login">Iniciar sesión</NavDropdown.Item>
                                     <NavDropdown.Item href="/register">Registrarse</NavDropdown.Item>
@@ -62,7 +65,7 @@ class Header_post extends React.Component {
                         </li>
                         <li class="nav-item">
                             <div className="d-flex align-items-center space">
-                                <FontAwesomeIcon icon={faUniversalAccess} size="xl" />
+                                <FontAwesomeIcon className="color-icon-l" icon={faUniversalAccess} size="xl" />
                                 <NavDropdown id="navbarScrollingDropdown">
                                     <NavDropdown.Item href="#action4"> Ajuste del nivel de contraste</NavDropdown.Item>
                                     <NavDropdown.Item href="#action4"> Ajuste del tamaño de la letra</NavDropdown.Item>
