@@ -15,14 +15,14 @@ class Restablecer_contraseña extends React.Component {
                 <Header/>
 
                     <main role="main" className="flex-shrink-0 mt-5 mb-5">
-                        <section class="">
-                            <div class="container h-custom">
-                                <div class="row d-flex justify-content-center align-items-center h-100">
+                        <section className="">
+                            <div className="container h-custom">
+                                <div className="row d-flex justify-content-center align-items-center h-100">
                                     
                            
                                         <form>
-                                            <div class="mb-5">
-                                                <h1 class="text-center">Restablecer contraseña</h1>
+                                            <div className="mb-5">
+                                                <h1 className="text-center">Restablecer contraseña</h1>
                                             </div>
 
                                             <Form.Group className="mb-3 text-start" controlId="formBasicEmail">

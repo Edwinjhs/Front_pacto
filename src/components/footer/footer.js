@@ -23,7 +23,7 @@ class Footer extends React.Component {
               </ul>
             </div>
 
-            <div className="col-md-6 mb-4 mb-md-0 justify-content-end">
+            <div className="col-md-6 mb-4 mb-md-0 d-flex justify-content-end">
 
               <ul className="list-unstyled list-group list-group-horizontal">
                 <li className='m-2'>
@@ -47,7 +47,7 @@ class Footer extends React.Component {
           </div>
 
         </div>
-        <hr className="container mx-" />
+        <hr className="container" />
 
         <div className="container px-5">
           <ul className="list-group list-group-horizontal list-unstyled text-font-size">
