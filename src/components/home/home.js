@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Footer from '../footer/footer';
 import Header_post from '../header_post/header_post';
-import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faFile, faImage, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
 import ModalLogin from '../modal_perfil/modal-profile';

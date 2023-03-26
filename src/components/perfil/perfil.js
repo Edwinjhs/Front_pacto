@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import Footer from '../footer/footer';
 import Header_post from '../header_post/header_post';
-import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComments, faFile, faImage, faLocationDot, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { faComments, faLocationDot, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import ModalLogin from '../modal_perfil/modal-profile';
-import { Link } from 'react-router-dom';
 
 
 const Perfil = () => {
@@ -20,7 +18,6 @@ const Perfil = () => {
         <>
             <div>
                 <Header_post />
-
                 <div className="row profile-body">
                     <div className="d-none d-md-block col-md-4 col-xl-3 left-wrapper mt-3">
                         <div className="card rounded">
@@ -423,11 +420,7 @@ const Perfil = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-
-
                 <Footer />
             </div>
             <ModalLogin show={show} handleClose={handleClose} />
