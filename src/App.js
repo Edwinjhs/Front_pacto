@@ -4,8 +4,11 @@ import './styles/App.css';
 import axios from 'axios';
 
 import Login from './components/login/login';
+<<<<<<< HEAD
 import Perfil from './components/perfil/perfil';
 import Dashboard from './components/dashboard/dashboard';
+=======
+>>>>>>> 592201bd9f2467d323045dd4806f86db93b7159d
 import Home from './components/home/home';
 import Signup from './components/signup/signup';
 import Editar_perfil from './components/editar_perfil/editar_perfil';
@@ -29,8 +32,11 @@ const App = () => {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/restablecer_contraseña" element={<Restablecer_contraseña />}></Route>
           <Route path="/home" element={<Home />}></Route>
+<<<<<<< HEAD
           <Route path="/perfil" element={<Perfil />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
+=======
+>>>>>>> 592201bd9f2467d323045dd4806f86db93b7159d
         </Routes>
       </BrowserRouter>
 

@@ -4,9 +4,16 @@ import Header_post from '../header_post/header_post';
 import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faFile, faImage, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import ModalLogin from '../modal_perfil/modal-profile';
+
 
 const Home = () => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
 
     return (
         <>
@@ -404,9 +411,14 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+
                 </div>
+
+
+
                 <Footer />
             </div>
+            <ModalLogin show={show} handleClose={handleClose} />
         </>
     )
 
