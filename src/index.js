@@ -6,7 +6,6 @@ import './styles/header.css';
 import './styles/login.css';
 import './styles/signup.css';
 import './styles/home.css';
-import './styles/perfil.css'
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 // import { HashRouter as Router, Route, Switch } from 'react-router-dom';

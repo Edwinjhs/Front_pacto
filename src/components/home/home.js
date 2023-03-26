@@ -5,9 +5,16 @@ import Header_post from '../header_post/header_post';
 import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faFile, faImage, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import ModalLogin from '../modal_perfil/modal-profile';
+
 
 const Home = () => {
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
 
     return (
         <>
@@ -24,17 +31,19 @@ const Home = () => {
                                 <div class="d-flex align-items-center text-start mb-3">
                                     <img class="mw-image-nav-left rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                     <div class="ms-2">
-                                        <p className='mb-0 fw-bold'>Andrés Felipe Rodríguez Lamus</p>
+                                        <button type="button" class="my-0 mx-0 bg-body border-0 px-0 text-start" onClick={handleShow}>
+                                            <p className='mb-0 fw-bold'>Andrés Felipe Rodríguez Lamus</p>
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center text-start mb-3">
-                                    <FontAwesomeIcon class="mw-icon-nav-left color-icon-h" icon={faComments} />
+                                    <FontAwesomeIcon class="mw-icon-nav-left" icon={faComments} />
                                     <div class="ms-2">
                                         <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fw-bold'>Publicaciones</p></a>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center text-start mb-3">
-                                    <FontAwesomeIcon class="mw-icon-nav-left color-icon-h" icon={faUsers} />
+                                    <FontAwesomeIcon class="mw-icon-nav-left" icon={faUsers} />
                                     <div class="ms-2">
                                         <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fw-bold'>Seguidos</p></a>
                                     </div>
@@ -52,9 +61,7 @@ const Home = () => {
                                             <div class="d-flex align-items-center text-start">
                                                 <img class="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div class="ms-2">
-                                                    <Link to="/perfil" className='text-decoration-none'>
-                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
-                                                    </Link>
+                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -67,8 +74,12 @@ const Home = () => {
                                     <hr className='m-0' />
                                     <div class="">
                                         <div class="d-flex justify-content-start post-actions my-1 me-0">
+                                            {/* <a href="javascript:;" class="d-flex align-items-center text-muted text-decoration-none color-corp mx-auto">
+                                                <FontAwesomeIcon class="mw-icon-post color-corp" icon={faImage} />
+                                                <p class="d-none d-md-block ms-2 mb-0 align-items-center">Añadir imagen</p>
+                                            </a> */}
                                             <button type='button' class="btn btn-link text-decoration-none text-muted fs-6 mx-0 my-0 button-size-l border-active-none">
-                                                <FontAwesomeIcon class="mw-icon-post color-corp" icon={faImage} /> Añadir imagen
+                                                <FontAwesomeIcon class="mw-icon-post color-corp" icon={faImage} /> Enviar mensaje
                                             </button>
                                             <button type='button' class="btn btn-link text-decoration-none text-muted fs-6 mx-0 my-0 button-size-l border-active-none">
                                                 <FontAwesomeIcon class="mw-icon-post color-corp" icon={faVideo} /> Añadir video
@@ -77,7 +88,7 @@ const Home = () => {
                                                 <FontAwesomeIcon class="mw-icon-file color-corp" icon={faFile} /> Añadir archivo
                                             </button>
                                             <div className='d-grid col-4 my-1 justify-content-end'>
-                                                <button type='button' class="btn btn-primary fs-6 color-corp-boton">
+                                                <button type='button' class="btn btn-primary fs-6">
                                                     Publicar
                                                 </button>
                                             </div>
@@ -90,9 +101,7 @@ const Home = () => {
                                             <div class="d-flex align-items-center text-start">
                                                 <img class="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div class="ms-2">
-                                                    <Link to="/perfil" className='text-decoration-none'>
-                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
-                                                    </Link>
+                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
                                                     <p class="mb-0 text-muted">Hace 40 minutos</p>
                                                 </div>
                                             </div>
@@ -161,9 +170,7 @@ const Home = () => {
                                             <div class="d-flex align-items-center text-start">
                                                 <img class="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div class="ms-2">
-                                                    <Link to="/perfil" className='text-decoration-none'>
-                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
-                                                    </Link>
+                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
                                                     <p class="mb-0 text-muted">Hace 1 minuto</p>
                                                 </div>
                                             </div>
@@ -245,7 +252,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-4 mx-auto'>
-                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right-sug" icon={faUserPlus} /> Seguir
                                                 </button>
                                             </div>
@@ -258,7 +265,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-4 mx-auto'>
-                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right-sug" icon={faUserPlus} /> Seguir
                                                 </button>
                                             </div>
@@ -271,7 +278,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-4 mx-auto'>
-                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right-sug" icon={faUserPlus} /> Seguir
                                                 </button>
                                             </div>
@@ -284,7 +291,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-4 mx-auto'>
-                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right-sug" icon={faUserPlus} /> Seguir
                                                 </button>
                                             </div>
@@ -297,7 +304,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-4 mx-auto'>
-                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right-sug" icon={faUserPlus} /> Seguir
                                                 </button>
                                             </div>
@@ -310,7 +317,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-4 mx-auto'>
-                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn-primary fs-6 mx-3 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right-sug" icon={faUserPlus} /> Seguir
                                                 </button>
                                             </div>
@@ -330,7 +337,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-5 mx-auto'>
-                                                <button type='button' class="btn btn btn-primary fs-6 mx-1 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn btn-primary fs-6 mx-1 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right" icon={faComments} /> Enviar mensaje
                                                 </button>
                                             </div>
@@ -343,7 +350,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-5 mx-auto'>
-                                                <button type='button' class="btn btn btn-primary fs-6  mx-1 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn btn-primary fs-6  mx-1 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right" icon={faComments} /> Enviar mensaje
                                                 </button>
                                             </div>
@@ -356,7 +363,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-5 mx-auto'>
-                                                <button type='button' class="btn btn btn-primary fs-6 mx-1 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn btn-primary fs-6 mx-1 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right" icon={faComments} /> Enviar mensaje
                                                 </button>
                                             </div>
@@ -369,7 +376,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-5 mx-auto'>
-                                                <button type='button' class="btn btn btn-primary fs-6  mx-1 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn btn-primary fs-6  mx-1 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right" icon={faComments} /> Enviar mensaje
                                                 </button>
                                             </div>
@@ -382,7 +389,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-5 mx-auto'>
-                                                <button type='button' class="btn btn btn-primary fs-6 mx-1 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn btn-primary fs-6 mx-1 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right" icon={faComments} /> Enviar mensaje
                                                 </button>
                                             </div>
@@ -395,7 +402,7 @@ const Home = () => {
                                                 </div>
                                             </div>
                                             <div className='d-grid col-5 mx-auto'>
-                                                <button type='button' class="btn btn btn-primary fs-6 mx-1 my-3 color-corp-boton">
+                                                <button type='button' class="btn btn btn-primary fs-6 mx-1 my-3">
                                                     <FontAwesomeIcon class="mw-icon-nav-right" icon={faComments} /> Enviar mensaje
                                                 </button>
                                             </div>
@@ -405,9 +412,14 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+
                 </div>
+
+
+
                 <Footer />
             </div>
+            <ModalLogin show={show} handleClose={handleClose} />
         </>
     )
 
