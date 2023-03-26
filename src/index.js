@@ -6,11 +6,8 @@ import './styles/header.css';
 import './styles/login.css';
 import './styles/signup.css';
 import './styles/home.css';
-<<<<<<< HEAD
 import './styles/perfil.css'
 import './styles/dashboard.css'
-=======
->>>>>>> 592201bd9f2467d323045dd4806f86db93b7159d
 import App from './App';
 // import reportWebVitals from './reportWebVitals';
 // import { HashRouter as Router, Route, Switch } from 'react-router-dom';
