@@ -51,3 +51,13 @@
     outline:0px !important;
     box-shadow: none !important;
 }
+
+.color-corp-boton {
+    color: #FFFFFF !important;
+    background-color: #006186 !important;
+    border-color: #006186 !important;
+}
+
+.color-icon-h {
+    color: #006186 !important;
+}
