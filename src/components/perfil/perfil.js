@@ -3,11 +3,12 @@ import Footer from '../footer/footer';
 import Header_post from '../header_post/header_post';
 import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComments, faFile, faImage, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { faComments, faFile, faImage, faLocationDot, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
 import ModalLogin from '../modal_perfil/modal-profile';
+import { Link } from 'react-router-dom';
 
 
-const Home = () => {
+const Perfil = () => {
 
     const [show, setShow] = useState(false);
 
@@ -34,13 +35,13 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className="d-flex align-items-center text-start mb-3">
-                                    <FontAwesomeIcon className="mw-icon-nav-left color-icon-h" icon={faComments} />
+                                    <FontAwesomeIcon className="mw-icon-nav-left color-icon" icon={faComments} />
                                     <div className="ms-2">
                                         <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fw-bold'>Publicaciones</p></a>
                                     </div>
                                 </div>
                                 <div className="d-flex align-items-center text-start mb-3">
-                                    <FontAwesomeIcon className="mw-icon-nav-left color-icon-h" icon={faUsers} />
+                                    <FontAwesomeIcon className="mw-icon-nav-left color-icon" icon={faUsers} />
                                     <div className="ms-2">
                                         <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fw-bold'>Seguidos</p></a>
                                     </div>
@@ -52,53 +53,66 @@ const Home = () => {
                     <div className="col-md-8 col-xl-6 middle-wrapper mt-3">
                         <div className="row">
                             <div className="col-md-12 gri-margin">
+
                                 <div className="card rounded">
-                                    <div className="card-header">
-                                        <div className="d-flex align-items-center justify-content-between">
-                                            <div className="d-flex align-items-center text-start">
-                                                <img className="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
-                                                <div className="ms-2">
-                                                    <Link to="/perfil" className='text-decoration-none'>
-                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
-                                                    </Link>
-                                                </div>
-                                            </div>
+                                    <div className="d-flex align-items-center justify-content-center my-3">
+
+                                        <img className="mw-image-perfil rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Imagen de perfil" />
+                                    </div>
+                                    <div className="ms-2">
+                                        <a className='text-decoration-none text-dark'><p className='mb-2 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                    </div>
+
+                                    <hr className='m-0' />
+
+                                    <div className="row align-items-start mt-3">
+                                        <div className="col fw-bold">
+                                            Actor social:
+                                            <p className='fw-normal' >Empresa</p>
+                                        </div>
+                                        <div className="col fw-bold">
+                                            Entidad:
+                                            <p className='fw-normal' >Ejemplo 1 sas</p>
+                                        </div>
+                                        <div className="col fw-bold">
+                                            Aportes a la comunidad:
+                                            <p className='fw-normal' >Conocimientos</p>
                                         </div>
                                     </div>
-                                    <form>
-                                        <div className="card-body text-start d-flex align-items-center">
-                                            <input className="card-body text-start d-flex align-items-center border-active-none" type="text" placeholder='¿Qué estas pensando?' />
-                                        </div>
-                                    </form>
+
+                                    <div className="col fw-bold text-start mx-4 mt-4 bg-perfil p-4 rounded-3">
+                                        Descripción del perfil:
+                                        <p className='fw-normal'>Vivamus tristique finibus quam ac placerat. Phasellus tincidunt efficitur libero, sed pretium ipsum porttitor eget. Quisque id lorem nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod id metus vel finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ut turpis id nunc aliquam rutrum. Aenean aliquet mattis fringilla.</p>
+                                    </div>
+
+                                    <div className="col fw-bold text-start mx-4 my-4 bg-perfil p-4 rounded-3">
+                                        Intereses de conocimiento:
+                                        <p className='fw-normal'>Vivamus tristique finibus quam ac placerat. Phasellus tincidunt efficitur libero, sed pretium ipsum porttitor eget. Quisque id lorem nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod id metus vel finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ut turpis id nunc aliquam rutrum. Aenean aliquet mattis fringill.</p>
+                                    </div>
+
+                                    <div className='d-flex align-items-center justify-content-center mb-3'>
+                                        <FontAwesomeIcon className="icon-size d-flex align-items-center mx-2 color-corp" icon={faLocationDot} />
+                                        <p className='mb-0 fs-6 fw-bolder'>Bogotá D.C., Cundinamarca</p>
+                                    </div>
+
                                     <hr className='m-0' />
-                                    <div className="">
-                                        <div className="d-flex justify-content-start post-actions my-1 me-0">
-                                            <button type='button' className="btn btn-link text-decoration-none text-muted fs-6 mx-0 my-0 button-size-l border-active-none">
-                                                <FontAwesomeIcon className="mw-icon-post color-corp" icon={faImage} /> Añadir imagen
-                                            </button>
-                                            <button type='button' className="btn btn-link text-decoration-none text-muted fs-6 mx-0 my-0 button-size-l border-active-none">
-                                                <FontAwesomeIcon className="mw-icon-post color-corp" icon={faVideo} /> Añadir video
-                                            </button>
-                                            <button type='button' className="btn btn-link text-decoration-none text-muted fs-6 mx-0 my-0 button-size-l border-active-none">
-                                                <FontAwesomeIcon className="mw-icon-file color-corp" icon={faFile} /> Añadir archivo
-                                            </button>
-                                            <div className='d-grid col-4 my-1 justify-content-end'>
-                                                <button type='button' className="btn btn-primary fs-6 color-corp-boton">
-                                                    Publicar
-                                                </button>
-                                            </div>
-                                        </div>
+
+                                    <div className="d-flex justify-content-center post-actions my-1 me-0">
+                                        <button type='button' className="btn btn-prim fs-6 my-2 color-corp-boton" onClick={handleShow}>
+                                            Actualizar
+                                        </button>
                                     </div>
                                 </div>
+
+
+
                                 <div className="card rounded mt-3">
                                     <div className="card-header">
                                         <div className="d-flex align-items-center justify-content-between">
                                             <div className="d-flex align-items-center text-start">
                                                 <img className="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div className="ms-2">
-                                                    <Link to="/perfil" className='text-decoration-none'>
-                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
-                                                    </Link>
+                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
                                                     <p className="mb-0 text-muted">Hace 40 minutos</p>
                                                 </div>
                                             </div>
@@ -161,15 +175,13 @@ const Home = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="card rounded mt-3">
+                                <div className="card rounded mt-3 mb-3">
                                     <div className="card-header">
                                         <div className="d-flex align-items-center justify-content-between">
                                             <div className="d-flex align-items-center text-start">
                                                 <img className="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div className="ms-2">
-                                                    <Link to="/perfil" className='text-decoration-none'>
-                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
-                                                    </Link>
+                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
                                                     <p className="mb-0 text-muted">Hace 1 minuto</p>
                                                 </div>
                                             </div>
@@ -424,4 +436,4 @@ const Home = () => {
 
 }
 
-export default Home;
+export default Perfil;
