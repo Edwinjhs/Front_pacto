@@ -5,16 +5,9 @@ import Header_post from '../header_post/header_post';
 import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faFile, faImage, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
-import ModalLogin from '../modal_perfil/modal-profile';
-
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
 
     return (
         <>
@@ -31,9 +24,7 @@ const Home = () => {
                                 <div class="d-flex align-items-center text-start mb-3">
                                     <img class="mw-image-nav-left rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                     <div class="ms-2">
-                                        <button type="button" class="my-0 mx-0 bg-body border-0 px-0 text-start" onClick={handleShow}>
-                                            <p className='mb-0 fw-bold'>Andrés Felipe Rodríguez Lamus</p>
-                                        </button>
+                                        <p className='mb-0 fw-bold'>Andrés Felipe Rodríguez Lamus</p>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center text-start mb-3">
@@ -61,7 +52,9 @@ const Home = () => {
                                             <div class="d-flex align-items-center text-start">
                                                 <img class="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div class="ms-2">
-                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                    <Link to="/perfil" className='text-decoration-none'>
+                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,7 +90,9 @@ const Home = () => {
                                             <div class="d-flex align-items-center text-start">
                                                 <img class="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div class="ms-2">
-                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                    <Link to="/perfil" className='text-decoration-none'>
+                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                    </Link>
                                                     <p class="mb-0 text-muted">Hace 40 minutos</p>
                                                 </div>
                                             </div>
@@ -166,7 +161,9 @@ const Home = () => {
                                             <div class="d-flex align-items-center text-start">
                                                 <img class="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div class="ms-2">
-                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                    <Link to="/perfil" className='text-decoration-none'>
+                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                    </Link>
                                                     <p class="mb-0 text-muted">Hace 1 minuto</p>
                                                 </div>
                                             </div>
@@ -408,14 +405,9 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
-
-
-
                 <Footer />
             </div>
-            <ModalLogin show={show} handleClose={handleClose} />
         </>
     )
 

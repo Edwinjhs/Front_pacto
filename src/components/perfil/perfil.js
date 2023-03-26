@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Footer from '../footer/footer';
 import Header_post from '../header_post/header_post';
@@ -6,6 +5,7 @@ import Avatar from '../img/perfil.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faFile, faImage, faLocationDot, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
 import ModalLogin from '../modal_perfil/modal-profile';
+import { Link } from 'react-router-dom';
 
 
 const Perfil = () => {
@@ -31,9 +31,7 @@ const Perfil = () => {
                                 <div class="d-flex align-items-center text-start mb-3">
                                     <img class="mw-image-nav-left rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                     <div class="ms-2">
-                                        <button type="button" class="my-0 mx-0 bg-body border-0 px-0 text-start" onClick={handleShow}>
-                                            <p className='mb-0 fw-bold'>Andrés Felipe Rodríguez Lamus</p>
-                                        </button>
+                                        <p className='mb-0 fw-bold'>Andrés Felipe Rodríguez Lamus</p>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center text-start mb-3">
@@ -62,7 +60,7 @@ const Perfil = () => {
                                         <img class="mw-image-perfil rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Imagen de perfil" />
                                     </div>
                                     <div class="ms-2">
-                                        <a className='text-decoration-none text-dark' href='#'><p className='mb-2 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                            <a className='text-decoration-none text-dark'><p className='mb-2 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
                                     </div>
 
                                     <hr className='m-0' />
@@ -93,14 +91,14 @@ const Perfil = () => {
                                     </div>
 
                                     <div className='d-flex align-items-center justify-content-center mb-3'>
-                                            <FontAwesomeIcon class="icon-size d-flex align-items-center mx-2 color-corp" icon={faLocationDot} /> 
-                                            <p className='mb-0 fs-6 fw-bolder'>Bogotá D.C., Cundinamarca</p>
+                                        <FontAwesomeIcon class="icon-size d-flex align-items-center mx-2 color-corp" icon={faLocationDot} />
+                                        <p className='mb-0 fs-6 fw-bolder'>Bogotá D.C., Cundinamarca</p>
                                     </div>
 
                                     <hr className='m-0' />
 
                                     <div class="d-flex justify-content-center post-actions my-1 me-0">
-                                        <button type='button' class="btn btn-prim fs-6 my-2 color-corp-boton">
+                                        <button type='button' class="btn btn-prim fs-6 my-2 color-corp-boton" onClick={handleShow}>
                                             Actualizar
                                         </button>
                                     </div>
