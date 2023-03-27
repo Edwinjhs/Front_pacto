@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import './styles/App.css';
 import axios from 'axios';
@@ -11,16 +11,29 @@ import Editar_perfil from './components/editar_perfil/editar_perfil';
 import Restablecer_contraseña from './components/restablecer_contraseña/restablecer_contraseña';
 
 
+
+
 const App = () => {
-  useEffect(() => {
-    axios.get('http://localhost:8000/')
-      .then(response => console.log(response.data));
-  }, [])
+ const [isDarkMode, setIsDarkMode] = useState(false);
+ const toggleDarkMode = () => {
+   setIsDarkMode(!isDarkMode);
+   document.body.classList.toggle('dark');
+ };
 
-  return (
-    <div className="App">
 
-      <BrowserRouter>
+ useEffect(() => {
+   axios.get('http://localhost:8000/')
+     .then(response => console.log(response.data));
+ }, [])
+
+
+ return (
+   <div className="App">
+     <button onClick={toggleDarkMode}>
+       {isDarkMode ? 'Modo Claro' : 'Modo Oscuro'}
+     </button>
+    
+     <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/editar_perfil" element={<Editar_perfil />}></Route>
@@ -31,10 +44,14 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
       </BrowserRouter>
+    
 
-    </div>
-  );
+
+   </div>
+ );
+
 
 }
+
 
 export default App;
