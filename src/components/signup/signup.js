@@ -27,11 +27,22 @@ function Signup() {
     event.preventDefault();
     const form = event.target;
     const form_data = new FormData(form);
-    axios.post("http://localhost:8000/api/user/post", form_data).then((response) => {
-    })
-    .catch((error) => {
-        console.log(error);
-    });
+  
+    setName(form_data.get('name_user'));
+    setLastname(form_data.get('lastname'));
+    setEmail(form_data.get('email'));
+    setUsername(form_data.get('username'));
+    setPassword(form_data.get('password'));
+    setDescription(form_data.get('description'));
+    setKnowledge_interests(form_data.get('knowledge_interests'));
+  
+    axios.post("http://localhost:8000/api/user/post", form_data)
+      .then((response) => {
+        // handle success
+      })
+      .catch((error) => {
+        // handle error
+      });
   }
 // traerme las entidades
   useEffect(() => {

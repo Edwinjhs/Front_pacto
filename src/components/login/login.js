@@ -27,7 +27,6 @@ function handleLoginFormSubmit(event) {
 				// Update the current page's location
 				window.location.href = '/home';
 			}
-			console.log(response);
 		}).catch(error => {
 			console.log(error);
 		});
@@ -36,6 +35,7 @@ function handleLoginFormSubmit(event) {
 	// En este ejemplo, se llama al endpoint /token para autenticar al usuario y obtener el token. 
 	// Luego, se extrae el token de la respuesta y se utiliza en una solicitud GET al endpoint /api/users/me. 
 	// El token se incluye en el encabezado Authorization con el prefijo "Bearer".
+
 
 class Login extends React.Component {
 	render() {
