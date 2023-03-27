@@ -63,7 +63,7 @@ class Header extends React.Component {
                 <div className="d-flex align-items-center">
                     <FontAwesomeIcon icon={faUser} />
                     <NavDropdown  id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="/login">Iniciar sesión</NavDropdown.Item>
+                        <NavDropdown.Item href="/">Iniciar sesión</NavDropdown.Item>
                         <NavDropdown.Item href="/register">Registrarse</NavDropdown.Item>
                     </NavDropdown>
                 </div>

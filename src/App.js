@@ -12,7 +12,6 @@ import Restablecer_contraseña from './components/restablecer_contraseña/restab
 
 
 const App = () => {
-
   useEffect(() => {
     axios.get('http://localhost:8000/')
       .then(response => console.log(response.data));
@@ -23,9 +22,9 @@ const App = () => {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Signup />}></Route>
+          <Route path="/" element={<Login />}></Route>
           <Route path="/editar_perfil" element={<Editar_perfil />}></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
           <Route path="/restablecer_contraseña" element={<Restablecer_contraseña />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/perfil" element={<Perfil />}></Route>
