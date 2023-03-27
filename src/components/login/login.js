@@ -9,11 +9,8 @@ import axios from 'axios';
 
 function handleLoginFormSubmit(event) {
 	event.preventDefault();
-	// const username = event.target.username.value;
-	// const password = event.target.password.value;
 	const form = event.target;
     const form_data = new FormData(form);
-	// console.log(event.target);
 	
 	axios
 	.post('http://localhost:8000/token',

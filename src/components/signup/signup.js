@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import axios from "axios";
+import Avatar from '../img/perfil.png';
 
 function Signup() {
   const [name_user, setName] = useState("");
@@ -95,6 +96,15 @@ function Signup() {
                   <h3 className="text-start fw-bold">FORMULARIO DE REGISTRO</h3>
                 </div>
               </div>
+              <h4 className='fw-bold'>Foto de perfil</h4>
+              <div className='mb-4 mt-4'>
+                <img
+                    src={Avatar}
+                    height="100"
+                    alt="Avatar perfil"
+                    loading="lazy"
+                />
+              </div>
               <div className="row text-start">
                 <div className="col">
                   <label className="form-label fw-bold" htmlFor="form3Example4"> Nombres:</label>
@@ -185,6 +195,12 @@ function Signup() {
                     <input className="form-control" placeholder="Inserte sus intereses y conocimientos" name="knowledge_interests" />
                   </div>
                 </div>
+                <div className='row'>
+                  <div class="col text-start">
+                    <label className="form-label fw-bold" for="form3Example4">Seleccione un foto de perfil:</label>
+                    <input type="file" className="form-control" placeholder="Inserte sus nombres" />
+                  </div>
+                  </div>
                 <div>
                   <input type="checkbox" id="cohabitation_agreement" name="cohabitation_agreement" value={userData.cohabitation_agreement} onChange={handleInputChange} required />
                   <label htmlFor="cohabitation_agreement">Acepto los términos y condiciones</label>
