@@ -38,6 +38,7 @@ function handleLoginFormSubmit(event) {
 // Luego, se extrae el token de la respuesta y se utiliza en una solicitud GET al endpoint /api/users/me. 
 // El token se incluye en el encabezado Authorization con el prefijo "Bearer".
 
+
 class Login extends React.Component {
 	render() {
 		return (
@@ -75,9 +76,7 @@ class Login extends React.Component {
 												<a href="/restablecer_contraseña" className="text-body">¿Olvidó la contraseña?</a>
 											</div>
 											<p className="small fw-bold mt-2 pt-1 mb-0">¿No tiene una cuenta?</p>
-											<Link to="/signup">
-												<button type="button" id="btn-login" className="btn-lg color-button"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>
-											</Link>
+											<button type="button" id="btn-login"  className="btn-lg color-button" onClick={() => window.location.href='/signup'}><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>											
 										</div>
 									</form>
 								</div>

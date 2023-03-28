@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
+
 import Footer from "../footer/footer";
 import Header from "../header/header";
 import axios from "axios";
@@ -9,31 +9,52 @@ function Signup() {
 
   const [name_user, setName] = useState("");
   const [lastname, setLastname] = useState("");
-  const [typesActors, setTypesActors] = useState([]);
+  const [id_type_actor, setId_type_actor] = useState([]);
+  const [id_city, setId_city] = useState([]);
+  const [id_contribution, setId_contribution] = useState([]);
+
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [name_enti, setNameEnti] = useState("");//New
-  const [contributions, setContributions] = useState([]);
-  const [phone_number, setPhone_number] = useState("");//New
+  const [phone_number, setPhone_number] = useState("");
   const [countries, setCountries] = useState([]);
-  const [contributions_text, setContributions_text] = useState("");//New
+  const [contribution_text, setContribution_text] = useState("");//New
   const [departments, setDepartments] = useState([]);
-  const [cities, setCities] = useState([]);
   const [description, setDescription] = useState("");
   const [knowledge_interests, setKnowledge_interests] = useState("");
+  const [image_profile, setImage_profile] = useState("");//New
 
   //   for the terms and conditions
   const [userData, setUserData] = useState({
     cohabitation_agreement: false,
   })
 
+  function handleImageUpload(event) {
+    const formData = new FormData();
+    formData.append("image_profile", event.target.files[0]);
+    // console.log(event.target.files)
+    setImage_profile(URL.createObjectURL(event.target.files[0]));
+
+  //   axios.post("http://localhost:8000/uploadfile/", formData)
+  //     .then(response => {
+  //       console.log(response.data.message);
+  //     })
+  //     .catch(error => {
+  //       console.log(error);
+  //     });
+  }
   function handleSignupSubmit(event) {
     event.preventDefault();
     const form = event.target;
     const form_data = new FormData(form);
+    // const type_actor_id = form_data.get('typeactor')
+    // form_data.append("id_type_actor", type_actor_id)
+    // console.log (form_data)
     const formDataObj = Object.fromEntries(form_data.entries());
+
     axios.post("http://localhost:8000/api/user/post", formDataObj).then((response) => {
+      window.location.href = '/waiting_confirmation';
     })
       .catch((error) => {
         console.log(error);
@@ -42,16 +63,18 @@ function Signup() {
   // traerme las entidades
   useEffect(() => {
     axios.get("http://localhost:8000/api/typeactor/get").then((response) => {
-      setTypesActors(response.data);
+      setId_type_actor(response.data);
+      console.log(response.data);
+      
     });
   }, []);
   // traerme las contribuciones
   useEffect(() => {
     axios.get("http://localhost:8000/api/contribution/get").then((response) => {
-      setContributions(response.data);
+      setId_contribution(response.data);
     });
   }, []);
-  //   traerme los paises
+    // traerme los paises
   useEffect(() => {
     axios.get("http://localhost:8000/api/country/get").then((response) => {
       setCountries(response.data);
@@ -60,6 +83,19 @@ function Signup() {
         console.log(error);
       });
   }, []);
+
+
+//   useEffect(() => {
+//     // Realizar una llamada a la API al cargar la página
+//     axios.get('http://localhost:8000/api/user/getimageprofile/asdasda')
+//       .then((response) => {
+//         setImage_profile(response);
+//       })
+//       .catch((error) => {
+//         console.error(error);
+//       });
+//   }, []);
+
 
   function handleCountryChange(event) {
     // Obtener el ID del país seleccionado
@@ -86,9 +122,10 @@ function Signup() {
     fetch(`http://localhost:8000/api/departments/${departmentId}/cities/`)
       .then((response) => response.json())
       .then((data) => {
-        setCities(data);
+        setId_city(data);
       });
   }
+
 
   return (
     <div>
@@ -106,16 +143,17 @@ function Signup() {
                 <h4 className='fw-bold text-center'>Foto de perfil</h4>
                 <div className='mb-4 mt-4 text-center'>
                   <img
-                    src={Avatar}
+                    src={image_profile}
                     height="100"
                     alt="Avatar perfil"
                     loading="lazy"
+                    name="image_profile"
                   />
                 </div>
                 <div className='row text-start'>
                   <div class="col">
                     <label className="form-label fw-bold" for="form3Example4">Seleccione un foto de perfil:</label>
-                    <input type="file" className="form-control" placeholder="Inserte sus nombres" />
+                    <input type="file" className="form-control" name="image" placeholder="Inserte sus nombres" onChange={handleImageUpload} />                  
                   </div>
                 </div>
                 <div className="row text-start">
@@ -131,8 +169,8 @@ function Signup() {
                 <div className="row text-start">
                   <div className="col">
                     <label className="form-label fw-bold" htmlFor="form3Example4">Tipo de actor social:</label>
-                    <select className="form-select" name="typesActors">
-                      {typesActors.map((actor) => (
+                    <select className="form-select" name="id_type_actor">
+                      {id_type_actor.map((actor) => (
                         <option key={actor.id} value={actor.id}>
                           {actor.type_actor}{" "}
                         </option>
@@ -161,9 +199,9 @@ function Signup() {
                   </div>
                   <div className="col text-start">
                     <label className="form-label fw-bold" htmlFor="form3Example4">Aportes a la comunidad:</label>
-                    <select className="form-select" name="typesActors">
-                      {contributions.map((contribution) => (
-                        <option key={contribution.id} value={contribution.id}>
+                    <select className="form-select" name="id_contribution">
+                      {id_contribution.map((contribution) => (
+                        <option key={contribution.id} value={contribution.id} >
                           {contribution.name}{" "}
                         </option>
                       ))}{" "}
@@ -173,7 +211,7 @@ function Signup() {
                 <div className="row text-start">
                   <div className="col">
                     <label className="form-label fw-bold" for="form3Example4">Contacto:</label>
-                    <input type="text" className="form-control" placeholder="Contacto" value={phone_number} onChange={(e) => setPhone_number(e.target.value)} />
+                    <input type="text" className="form-control" placeholder="Contacto" name="phone_number" value={phone_number} onChange={(e) => setPhone_number(e.target.value)} />
                     <label className="form-label fw-bold" htmlFor="form3Example1">País:</label>
                     <select className="form-select" name="country" onChange={handleCountryChange}>
                       <option value="">Seleccione un país</option>
@@ -186,7 +224,7 @@ function Signup() {
                   </div>
                   <div className="col text-start">
                     <label className='form-label fw-bold' for="exampleFormControlTextarea1">Breve descripción de aportes a la comunidad:</label>
-                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" value={contributions_text} onChange={(e) => setContributions_text(e.target.value)} ></textarea>
+                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" name="contribution_text" value={contribution_text} onChange={(e) => setContribution_text(e.target.value)} ></textarea>
                   </div>
                 </div>
                 <div className="row text-start">
@@ -203,9 +241,9 @@ function Signup() {
                   </div>
                   <div className="col">
                     <label className="form-label fw-bold" htmlFor="form3Example3"> Ciudad:</label>
-                    <select className="form-select" name="city">
+                    <select className="form-select" name="id_city">
                       <option value="">Seleccione una ciudad</option>
-                      {cities.map((city) => (
+                      {id_city.map((city) => (
                         <option key={city.id} value={city.id}>
                           {city.name}{" "}
                         </option>
