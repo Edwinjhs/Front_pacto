@@ -22,8 +22,12 @@ const Perfil = () => {
     const [descrip_contribu, setDescrip_contribu] = useState();
     const [descrip_perfil, setDescrip_perfil] = useState();
     const [inte_conocimiento, setInte_conocimiento] = useState();
+    const [ciudad, setCiudad] = useState();
+    const [id_ciudad, setId_ciudad] = useState();
+    const [departamento, setDepartamento] = useState();
+    const [id_departamento, setId_departamento] = useState();
 
-    
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -34,19 +38,34 @@ const Perfil = () => {
             then((response) => {
                 setNombre(response.data.name_user);
                 setApellido(response.data.lastname);
-                setTipo_actor(response.data.typesActors);
+                setTipo_actor(response.data.id_type_actor);
                 setEntidad(response.data.name_enti);
-                setContribuciones(response.data.contributions);
+                setContribuciones(response.data.id_contribution);
                 setCorreo(response.data.email);
                 setCelular(response.data.phone_number);
-                setDescrip_contribu(response.data.contributions_text);
+                setDescrip_contribu(response.data.contribution_text);
                 setUsernam(response.data.username);
                 setDescrip_perfil(response.data.description);
                 setInte_conocimiento(response.data.knowledge_interests);
+                setId_ciudad(response.data.id_city);
+
+                axios.get("http://localhost:8000/api/city/get/").then((responseCity) => {
+                    const ciudadFiltrada = responseCity.data.filter((o) => o.id === response.data.id_city)[0];
+                    setCiudad(ciudadFiltrada);
+                    setId_departamento(responseCity.data.id_department);
+                    console.log()
+                    axios.get("http://localhost:8000/api/departament/get/").
+                        then((responseDepartment) => {
+                            setDepartamento(responseDepartment.data.filter((o) => o.id === ciudadFiltrada.id_department)[0]);
+                        })
+
+                });
             })
             .catch((error) => {
                 console.log(error);
             });
+
+
     }, [])
 
 
@@ -125,7 +144,7 @@ const Perfil = () => {
 
                                     <div className='d-flex align-items-center justify-content-center mb-3'>
                                         <FontAwesomeIcon className="icon-size d-flex align-items-center mx-2 color-corp" icon={faLocationDot} />
-                                        <p className='mb-0 fs-6 fw-bolder'>Bogotá D.C., Cundinamarca</p>
+                                        <p className='mb-0 fs-6 fw-bolder'>{ciudad ? ciudad.name : null}/ {departamento ? departamento.name : null}</p>
                                     </div>
 
                                     <hr className='m-0' />
@@ -136,8 +155,6 @@ const Perfil = () => {
                                         </button>
                                     </div>
                                 </div>
-
-
 
                                 <div className="card rounded mt-3">
                                     <div className="card-header">
@@ -459,7 +476,7 @@ const Perfil = () => {
                 </div>
                 <Footer />
             </div>
-            <ModalLogin show={show} handleClose={handleClose} usuario={{nombre: nombre, apellido: apellido, tipo_actor: tipo_actor, entidad: entidad, contribuciones: contribuciones, correo: correo, celular: celular, descrip_contribu: descrip_contribu, usernam: usernam, descrip_perfil: descrip_perfil, inte_conocimiento: inte_conocimiento}}/>
+            <ModalLogin show={show} handleClose={handleClose} usuario={{ nombre: nombre, apellido: apellido, tipo_actor: tipo_actor, entidad: entidad, contribuciones: contribuciones, correo: correo, celular: celular, descrip_contribu: descrip_contribu, usernam: usernam, descrip_perfil: descrip_perfil, inte_conocimiento: inte_conocimiento }} />
         </>
     )
 
