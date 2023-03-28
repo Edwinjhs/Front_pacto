@@ -2,17 +2,19 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
+import { isEmail } from 'validator';
 
 import Footer from '../footer/footer';
 import Header from '../header/header';
 
 
-class Restablecer_contraseña extends React.Component {
+class Restablecer_pw extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       message: "",
+      error: "",
     };
   }
 
@@ -20,19 +22,24 @@ class Restablecer_contraseña extends React.Component {
     this.setState({ email: event.target.value });
   };
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
+  handleFormSubmit = () => {
+    if (!isEmail(this.state.email)) {
+      this.setState({ error: "Ingrese un correo electrónico válido." });
+      return;
+    }
 
     // Envía una solicitud POST al backend para restablecer la contraseña
     axios
-      .post("http://localhost:8000/restablecer-contraseña", {
+      .post("http://localhost:8000/restablecer-pw", {
         email: this.state.email,
       })
       .then((response) => {
         this.setState({ message: response.data.message });
+        window.alert("Se ha enviado una nueva contraseña a su correo electrónico.");
       })
       .catch((error) => {
         console.error(error);
+        this.setState({ error: "No hemos encontrado el correo." });
       });
   };
 
@@ -44,7 +51,7 @@ class Restablecer_contraseña extends React.Component {
           <section className="">
             <div className="container h-custom">
               <div className="row d-flex justify-content-center align-items-center h-100">
-                <form onSubmit={this.handleFormSubmit}>
+                <form>
                   <div className="mb-5">
                     <h1 className="text-center">Restablecer contraseña</h1>
                   </div>
@@ -61,12 +68,19 @@ class Restablecer_contraseña extends React.Component {
                       value={this.state.email}
                       onChange={this.handleEmailChange}
                     />
+                    {this.state.error && (
+                      <div className="mt-2 text-danger">{this.state.error}</div>
+                    )}
                   </Form.Group>
-                  <form className="mt-5">
-                    <Button variant="primary" size="lg" type="submit" active>
-                      Enviar nueva contraseña
-                    </Button>
-                  </form>
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    type="button"
+                    active
+                    onClick={this.handleFormSubmit}
+                  >
+                    Enviar nueva contraseña
+                  </Button>
                 </form>
                 {this.state.message && (
                   <div className="mt-3 text-center">{this.state.message}</div>
@@ -80,4 +94,4 @@ class Restablecer_contraseña extends React.Component {
     );
   }
 }
-export default Restablecer_contraseña;
+export default Restablecer_pw;

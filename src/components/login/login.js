@@ -75,7 +75,7 @@ class Login extends React.Component {
 												<a href="/restablecer_contraseña" className="text-body">¿Olvidó la contraseña?</a>
 											</div>
 											<p className="small fw-bold mt-2 pt-1 mb-0">¿No tiene una cuenta?</p>
-											<button href="/signup" type="button" id="btn-login"  className="btn-lg color-button"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>											
+											<button type="button" id="btn-login"  className="btn-lg color-button" onClick={() => window.location.href='/signup'}><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>											
 										</div>
 									</form>
 								</div>
