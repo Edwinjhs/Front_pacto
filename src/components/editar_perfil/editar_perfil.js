@@ -6,7 +6,7 @@ function Editar_perfil({ usuario }) {
 
     const [name_user, setName] = useState(usuario.nombre);
     const [lastname, setLastname] = useState(usuario.apellido);
-    const [typesActors, setTypesActors] = useState(usuario.tipo_actor);
+    const [id_type_actor, setId_type_actor] = useState(usuario.tipo_actor);
     const [email, setEmail] = useState(usuario.correo);
     const [username, setUsername] = useState(usuario.usernam);
     const [password, setPassword] = useState("");
@@ -14,11 +14,18 @@ function Editar_perfil({ usuario }) {
     const [contributions, setContributions] = useState(usuario.contribuciones);
     const [phone_number, setPhone_number] = useState(usuario.celular);//New
     const [countries, setCountries] = useState([]);
-    const [contributions_text, setContributions_text] = useState(usuario.descrip_contribu);//New
+    const [contribution_text, setContribution_text] = useState(usuario.descrip_contribu);//New
     const [departments, setDepartments] = useState([]);
     const [cities, setCities] = useState([]);
     const [description, setDescription] = useState(usuario.descrip_perfil);
     const [knowledge_interests, setKnowledge_interests] = useState(usuario.inte_conocimiento);
+    const [list_type_actor, setList_type_actor] = useState([]);
+    const [list_contibutions, setList_contibutions] = useState([]);
+    const [list_countries, setList_countries] = useState([]);
+    const [list_departamentos, setList_departamentos] = useState([]);
+    const [list_ciudades, setList_ciudades] = useState([]);
+
+
 
     function handleSignupSubmit(event) {
         event.preventDefault();
@@ -33,26 +40,32 @@ function Editar_perfil({ usuario }) {
                 console.log(error);
             });
     }
-    // traerme las entidades
-    useEffect(() => {
-        axios.get("http://localhost:8000/api/typeactor/get").then((response) => {
-            setTypesActors(response.data);
-        });
-    }, []);
+
     // traerme las contribuciones
     useEffect(() => {
-        axios.get("http://localhost:8000/api/contribution/get").then((response) => {
-            setContributions(response.data);
+        axios.get("http://localhost:8000/api/typeactor/get").then((response) => {
+            setList_type_actor(response.data);
         });
-    }, []);
-    //   traerme los paises
-    useEffect(() => {
+
+        axios.get("http://localhost:8000/api/contribution/get").then((response) => {
+            setList_contibutions(response.data);
+        });
+
         axios.get("http://localhost:8000/api/country/get").then((response) => {
-            setCountries(response.data);
+            setList_countries(response.data);
         })
             .catch((error) => {
                 console.log(error);
             });
+
+        axios.get("http://localhost:8000/api/departament/get").then((response) => {
+            setList_departamentos(response.data);
+        });
+
+        axios.get("http://localhost:8000/api/city/get").then((response) => {
+            setList_ciudades(response.data);
+        });
+
     }, []);
 
     function handleCountryChange(event) {
@@ -120,15 +133,12 @@ function Editar_perfil({ usuario }) {
                                                 <div className="col">
                                                     <div className="form-group">
                                                         <label className='form-label fw-bold' for="exampleFormControlSelect1">Tipo de actor social:</label>
-                                                        <select className="form-control" id="exampleFormControlSelect1" value={typesActors} onChange={(e) => setTypesActors(e.target.value)}>
-                                                            <option className='#'>Seleccione una opción</option>
-                                                            <option>Organización de personas con discapacidad</option>
-                                                            <option>Empresas</option>
-                                                            <option>Entidades de formación</option>
-                                                            <option>Entidad de intermediación laboral</option>
-                                                            <option>Entidad prestadora de servicios</option>
-                                                            <option>Entidad territorial</option>
-                                                            <option>Academia</option>
+                                                        <select className="form-control" id="exampleFormControlSelect1" value={id_type_actor} onChange={(e) => setId_type_actor(e.target.value)}>
+                                                            {list_type_actor.map((actor) => (
+                                                                <option key={actor.id} value={actor.id}>
+                                                                    {actor.type_actor}{" "}
+                                                                </option>
+                                                            ))}{" "}
                                                         </select>
                                                     </div>
                                                 </div>
@@ -155,11 +165,12 @@ function Editar_perfil({ usuario }) {
                                                 <div className="col">
                                                     <div className="form-group">
                                                         <label className='form-label fw-bold' for="exampleFormControlSelect1">Aportes a la comunidad:</label>
-                                                        <select className="form-control" id="exampleFormControlSelect1">
-                                                            <option>Seleccione una opción</option>
-                                                            <option>Conocimientos</option>
-                                                            <option>Buenas practicás</option>
-                                                            <option>Casos exitosos</option>
+                                                        <select className="form-control" id="exampleFormControlSelect1" value={contributions} onChange={(e) => setContributions(e.target.value)}>
+                                                            {list_contibutions.map((contribution) => (
+                                                                <option key={contribution.id} value={contribution.id}>
+                                                                    {contribution.name}{" "}
+                                                                </option>
+                                                            ))}{" "}
                                                         </select>
                                                     </div>
                                                     <label className="form-label fw-bold" for="form3Example4">Contacto:</label>
@@ -167,7 +178,7 @@ function Editar_perfil({ usuario }) {
                                                 </div>
                                                 <div className="col text-start">
                                                     <label className='form-label fw-bold' for="exampleFormControlTextarea1">Breve descripción de aportes a la comunidad:</label>
-                                                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" value={contributions_text} onChange={(e) => setContributions_text(e.target.value)} ></textarea>
+                                                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" value={contribution_text} onChange={(e) => setContribution_text(e.target.value)} ></textarea>
                                                 </div>
                                             </div>
                                         </form>
@@ -175,18 +186,17 @@ function Editar_perfil({ usuario }) {
                                         <form>
                                             <div className="row text-start">
                                                 <div className="col">
-                                                    
+
                                                     <label className="form-label fw-bold" htmlFor="form3Example1">País:</label>
-                                                    <select className="form-select" name="country" onChange={handleCountryChange}>
-                                                        <option value="">Seleccione un país</option>
-                                                        {countries.map((country) => (
-                                                            <option key={country.id} value={country.id}>
-                                                                {country.name}{" "}
+                                                    <select className="form-select" name="country" value={countries} onChange={(e) => setCountries(e.target.value)}>
+                                                        {list_countries.map((countriess) => (
+                                                            <option key={countriess.id} value={countriess.id}>
+                                                                {countriess.name}{" "}
                                                             </option>
                                                         ))}{" "}
                                                     </select>
                                                 </div>
-                                                
+
                                             </div>
                                         </form>
 
@@ -194,22 +204,20 @@ function Editar_perfil({ usuario }) {
                                             <div className="row text-start">
                                                 <div className="col">
                                                     <label className="form-label fw-bold" htmlFor="form3Example2">Departamento:</label>
-                                                    <select className="form-select" name="department" onChange={handleDepartmentChange}>
-                                                        <option value="">Seleccione un departamento</option>
-                                                        {departments.map((department) => (
-                                                            <option key={department.id} value={department.id}>
-                                                                {department.name}{" "}
+                                                    <select className="form-select" name="department" value={departments} onChange={(e) => setDepartments(e.target.value)}>
+                                                        {list_departamentos.map((departmento) => (
+                                                            <option key={departmento.id} value={departmento.id}>
+                                                                {departmento.name}{" "}
                                                             </option>
                                                         ))}{" "}
                                                     </select>
                                                 </div>
                                                 <div className="col">
                                                     <label className="form-label fw-bold" htmlFor="form3Example3">Ciudad:</label>
-                                                    <select className="form-select" name="city">
-                                                        <option value="">Seleccione una ciudad</option>
-                                                        {cities.map((city) => (
-                                                            <option key={city.id} value={city.id}>
-                                                                {city.name}{" "}
+                                                    <select className="form-select" name="city" value={cities} onChange={(e) => setCities(e.target.value)}>
+                                                        {list_ciudades.map((ciudades) => (
+                                                            <option key={ciudades.id} value={ciudades.id}>
+                                                                {ciudades.name}{" "}
                                                             </option>
                                                         ))}{" "}
                                                     </select>
