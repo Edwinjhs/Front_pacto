@@ -15,9 +15,9 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [name_enti, setNameEnti] = useState("");//New
   const [contributions, setContributions] = useState([]);
-  const [phone_number, setPhone_number] = useState("");//New
+  const [phone_number, setPhone_number] = useState("");
   const [countries, setCountries] = useState([]);
-  const [contributions_text, setContributions_text] = useState("");//New
+  const [contribution_text, setContribution_text] = useState("");//New
   const [departments, setDepartments] = useState([]);
   const [cities, setCities] = useState([]);
   const [description, setDescription] = useState("");
@@ -186,7 +186,7 @@ function Signup() {
                   </div>
                   <div className="col text-start">
                     <label className='form-label fw-bold' for="exampleFormControlTextarea1">Breve descripción de aportes a la comunidad:</label>
-                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" value={contributions_text} onChange={(e) => setContributions_text(e.target.value)} ></textarea>
+                    <textarea className="form-control" id="exampleFormControlTextarea1" rows="4" value={contribution_text} onChange={(e) => setContribution_text(e.target.value)} ></textarea>
                   </div>
                 </div>
                 <div className="row text-start">
