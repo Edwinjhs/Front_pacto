@@ -13,25 +13,26 @@ function handleLoginFormSubmit(event) {
 	const form_data = new FormData(form);
 
 	axios
-	.post('http://localhost:8000/token',
-		form_data
-	)
-	.then(response => {
-		const token = response.data.access_token;
-		axios.get('http://localhost:8000/api/users/me', {
-			headers: {
-			'Authorization': `Bearer ${token}`
-			}
-		}).then(response => {
-			if (response.status === 200) {
-				// Update the current page's location
-				window.location.href = '/home';
-			}
-			console.log(response);
-		}).catch(error => {
-			console.log(error);
-		});
-	})
+		.post('http://localhost:8000/token',
+			form_data
+		)
+		.then(response => {
+			const token = response.data.access_token;
+			axios.get('http://localhost:8000/api/users/me', {
+				headers: {
+					'Authorization': `Bearer ${token}`
+				}
+			}).then(response => {
+				if (response.status === 200) {
+					const username = response.data.username;
+					// Update the current page's location
+					window.location.href = '/home/' + username;
+				}
+				console.log(response);
+			}).catch(error => {
+				console.log(error);
+			});
+		})
 }
 // En este ejemplo, se llama al endpoint /token para autenticar al usuario y obtener el token. 
 // Luego, se extrae el token de la respuesta y se utiliza en una solicitud GET al endpoint /api/users/me. 
