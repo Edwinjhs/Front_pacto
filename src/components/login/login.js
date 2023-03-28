@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Logo from '../img/cropped-logo_positivo.png';
 import { faRightToBracket, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import axios from 'axios';
@@ -74,7 +74,9 @@ class Login extends React.Component {
 												<a href="/restablecer_contraseña" className="text-body">¿Olvidó la contraseña?</a>
 											</div>
 											<p className="small fw-bold mt-2 pt-1 mb-0">¿No tiene una cuenta?</p>
-											<button href="/signup" type="button" id="btn-login"  className="btn-lg color-button"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>											
+											{/* <link to="/signup"> */}
+											 <button  type="button" id="btn-login"  className="btn-lg color-button"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>											
+											{/* </link> */}
 										</div>
 									</form>
 								</div>
