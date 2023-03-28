@@ -13,29 +13,30 @@ function handleLoginFormSubmit(event) {
 	const form_data = new FormData(form);
 
 	axios
-		.post('http://localhost:8000/token',
-			form_data
-		)
-		.then(response => {
-			const token = response.data.access_token;
-			axios.get('http://localhost:8000/api/users/me', {
-				headers: {
-					'Authorization': `Bearer ${token}`
-				}
-			}).then(response => {
-				if (response.status === 200) {
-					// Update the current page's location
-					window.location.href = '/home';
-				}
-				console.log(response);
-			}).catch(error => {
-				console.log(error);
-			});
-		})
+	.post('http://localhost:8000/token',
+		form_data
+	)
+	.then(response => {
+		const token = response.data.access_token;
+		axios.get('http://localhost:8000/api/users/me', {
+			headers: {
+			'Authorization': `Bearer ${token}`
+			}
+		}).then(response => {
+			if (response.status === 200) {
+				// Update the current page's location
+				window.location.href = '/home';
+			}
+			console.log(response);
+		}).catch(error => {
+			console.log(error);
+		});
+	})
 }
 // En este ejemplo, se llama al endpoint /token para autenticar al usuario y obtener el token. 
 // Luego, se extrae el token de la respuesta y se utiliza en una solicitud GET al endpoint /api/users/me. 
 // El token se incluye en el encabezado Authorization con el prefijo "Bearer".
+
 
 class Login extends React.Component {
 	render() {
@@ -74,9 +75,7 @@ class Login extends React.Component {
 												<a href="/restablecer_contraseña" className="text-body">¿Olvidó la contraseña?</a>
 											</div>
 											<p className="small fw-bold mt-2 pt-1 mb-0">¿No tiene una cuenta?</p>
-											<Link to="/signup">
-												<button type="button" id="btn-login" className="btn-lg color-button"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>
-											</Link>
+											<button type="button" id="btn-login"  className="btn-lg color-button" onClick={() => window.location.href='/signup'}><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>											
 										</div>
 									</form>
 								</div>

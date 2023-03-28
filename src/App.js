@@ -9,7 +9,7 @@ import Home from './components/home/home';
 import Signup from './components/signup/signup';
 import Editar_perfil from './components/editar_perfil/editar_perfil';
 import Restablecer_contraseña from './components/restablecer_contraseña/restablecer_contraseña';
-
+import Waiting_confirmation from './components/signup/waiting_confirmation';
 
 
 
@@ -38,6 +38,7 @@ const App = () => {
           <Route path="/" element={<Login />}></Route>
           <Route path="/editar_perfil" element={<Editar_perfil />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/waiting_confirmation" element={<Waiting_confirmation />}></Route>
           <Route path="/restablecer_contraseña" element={<Restablecer_contraseña />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/perfil" element={<Perfil />}></Route>
