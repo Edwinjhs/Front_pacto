@@ -64,7 +64,7 @@ class Header extends React.Component {
                     <FontAwesomeIcon icon={faUser} />
                     <NavDropdown  id="navbarScrollingDropdown">
                         <NavDropdown.Item href="/">Iniciar sesión</NavDropdown.Item>
-                        <NavDropdown.Item href="/register">Registrarse</NavDropdown.Item>
+                        <NavDropdown.Item href="/signup">Registrarse</NavDropdown.Item>
                     </NavDropdown>
                 </div>
 
