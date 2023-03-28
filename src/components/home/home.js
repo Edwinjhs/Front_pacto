@@ -1,18 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../footer/footer';
 import Header_post from '../header_post/header_post';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faFile, faImage, faUserPlus, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
 import ModalLogin from '../modal_perfil/modal-profile';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Home = () => {
 
     const [show, setShow] = useState(false);
+    const [nombre, setNombre] = useState();
+    const [apellido, setApellido] = useState();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const { username } = useParams();
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/user/get/" + username).
+            then((response) => {
+                setNombre(response.data.name_user);
+                setApellido(response.data.lastname);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [])
 
 
     return (
@@ -30,7 +45,8 @@ const Home = () => {
                                 <div className="d-flex align-items-center text-start mb-3">
                                     <img className="mw-image-nav-left rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                     <div className="ms-2">
-                                        <p className='mb-0 fw-bold'>Andrés Felipe Rodríguez Lamus</p>
+                                        <p className='mb-0 fw-bold'>{nombre + " " + apellido}</p>
+                                        {/* <p className='mb-0 fw-bold'>Andrés Felipe Rodríguez Lamus</p> */}
                                     </div>
                                 </div>
                                 <div className="d-flex align-items-center text-start mb-3">
@@ -58,8 +74,8 @@ const Home = () => {
                                             <div className="d-flex align-items-center text-start">
                                                 <img className="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div className="ms-2">
-                                                    <Link to="/perfil" className='text-decoration-none'>
-                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                    <Link to={"/perfil/" + username} className='text-decoration-none'>
+                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>{nombre + " " + apellido}</p></a>
                                                     </Link>
                                                 </div>
                                             </div>
@@ -97,7 +113,7 @@ const Home = () => {
                                                 <img className="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div className="ms-2">
                                                     <Link to="/perfil" className='text-decoration-none'>
-                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>{nombre + " " + apellido}</p></a>
                                                     </Link>
                                                     <p className="mb-0 text-muted">Hace 40 minutos</p>
                                                 </div>
@@ -168,7 +184,7 @@ const Home = () => {
                                                 <img className="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div className="ms-2">
                                                     <Link to="/perfil" className='text-decoration-none'>
-                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                        <a className='text-decoration-none text-dark'><p className='mb-0 fs-5 fw-bolder'>{nombre + " " + apellido}</p></a>
                                                     </Link>
                                                     <p className="mb-0 text-muted">Hace 1 minuto</p>
                                                 </div>

@@ -1,17 +1,53 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Footer from '../footer/footer';
 import Header_post from '../header_post/header_post';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments, faLocationDot, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons';
 import ModalLogin from '../modal_perfil/modal-profile';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Perfil = () => {
 
     const [show, setShow] = useState(false);
+    const [nombre, setNombre] = useState();
+    const [apellido, setApellido] = useState();
+    const [tipo_actor, setTipo_actor] = useState();
+    const [entidad, setEntidad] = useState();
+    const [contribuciones, setContribuciones] = useState();
+    const [correo, setCorreo] = useState();
+    const [usernam, setUsernam] = useState();
+    const [celular, setCelular] = useState();
+    const [descrip_contribu, setDescrip_contribu] = useState();
+    const [descrip_perfil, setDescrip_perfil] = useState();
+    const [inte_conocimiento, setInte_conocimiento] = useState();
 
+    
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const { username } = useParams();
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/user/get/" + username).
+            then((response) => {
+                setNombre(response.data.name_user);
+                setApellido(response.data.lastname);
+                setTipo_actor(response.data.typesActors);
+                setEntidad(response.data.name_enti);
+                setContribuciones(response.data.contributions);
+                setCorreo(response.data.email);
+                setCelular(response.data.phone_number);
+                setDescrip_contribu(response.data.contributions_text);
+                setUsernam(response.data.username);
+                setDescrip_perfil(response.data.description);
+                setInte_conocimiento(response.data.knowledge_interests);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, [])
 
 
     return (
@@ -28,7 +64,7 @@ const Perfil = () => {
                                 <div className="d-flex align-items-center text-start mb-3">
                                     <img className="mw-image-nav-left rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                     <div className="ms-2">
-                                        <p className='mb-0 fw-bold'>Andrés Felipe Rodríguez Lamus</p>
+                                        <p className='mb-0 fw-bold'>{nombre + " " + apellido}</p>
                                     </div>
                                 </div>
                                 <div className="d-flex align-items-center text-start mb-3">
@@ -57,7 +93,7 @@ const Perfil = () => {
                                         <img className="mw-image-perfil rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Imagen de perfil" />
                                     </div>
                                     <div className="ms-2">
-                                        <a className='text-decoration-none text-dark'><p className='mb-2 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                        <a className='text-decoration-none text-dark'><p className='mb-2 fs-5 fw-bolder'>{nombre + " " + apellido}</p></a>
                                     </div>
 
                                     <hr className='m-0' />
@@ -65,26 +101,26 @@ const Perfil = () => {
                                     <div className="row align-items-start mt-3">
                                         <div className="col fw-bold">
                                             Actor social:
-                                            <p className='fw-normal' >Empresa</p>
+                                            <p className='fw-normal' >{tipo_actor}</p>
                                         </div>
                                         <div className="col fw-bold">
                                             Entidad:
-                                            <p className='fw-normal' >Ejemplo 1 sas</p>
+                                            <p className='fw-normal' >{entidad}</p>
                                         </div>
                                         <div className="col fw-bold">
                                             Aportes a la comunidad:
-                                            <p className='fw-normal' >Conocimientos</p>
+                                            <p className='fw-normal' >{contribuciones}</p>
                                         </div>
                                     </div>
 
                                     <div className="col fw-bold text-start mx-4 mt-4 bg-perfil p-4 rounded-3">
                                         Descripción del perfil:
-                                        <p className='fw-normal'>Vivamus tristique finibus quam ac placerat. Phasellus tincidunt efficitur libero, sed pretium ipsum porttitor eget. Quisque id lorem nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod id metus vel finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ut turpis id nunc aliquam rutrum. Aenean aliquet mattis fringilla.</p>
+                                        <p className='fw-normal'>{descrip_perfil}</p>
                                     </div>
 
                                     <div className="col fw-bold text-start mx-4 my-4 bg-perfil p-4 rounded-3">
                                         Intereses de conocimiento:
-                                        <p className='fw-normal'>Vivamus tristique finibus quam ac placerat. Phasellus tincidunt efficitur libero, sed pretium ipsum porttitor eget. Quisque id lorem nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec euismod id metus vel finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce ut turpis id nunc aliquam rutrum. Aenean aliquet mattis fringill.</p>
+                                        <p className='fw-normal'>{inte_conocimiento}</p>
                                     </div>
 
                                     <div className='d-flex align-items-center justify-content-center mb-3'>
@@ -109,7 +145,7 @@ const Perfil = () => {
                                             <div className="d-flex align-items-center text-start">
                                                 <img className="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div className="ms-2">
-                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>{nombre + " " + apellido}</p></a>
                                                     <p className="mb-0 text-muted">Hace 40 minutos</p>
                                                 </div>
                                             </div>
@@ -178,7 +214,7 @@ const Perfil = () => {
                                             <div className="d-flex align-items-center text-start">
                                                 <img className="mw-image rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" />
                                                 <div className="ms-2">
-                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>Andrés Felipe Rodríguez Lamus</p></a>
+                                                    <a className='text-decoration-none text-dark' href='#'><p className='mb-0 fs-5 fw-bolder'>{nombre + " " + apellido}</p></a>
                                                     <p className="mb-0 text-muted">Hace 1 minuto</p>
                                                 </div>
                                             </div>
@@ -423,7 +459,7 @@ const Perfil = () => {
                 </div>
                 <Footer />
             </div>
-            <ModalLogin show={show} handleClose={handleClose} />
+            <ModalLogin show={show} handleClose={handleClose} usuario={{nombre: nombre, apellido: apellido, tipo_actor: tipo_actor, entidad: entidad, contribuciones: contribuciones, correo: correo, celular: celular, descrip_contribu: descrip_contribu, usernam: usernam, descrip_perfil: descrip_perfil, inte_conocimiento: inte_conocimiento}}/>
         </>
     )
 

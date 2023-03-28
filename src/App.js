@@ -26,8 +26,8 @@ const App = () => {
           <Route path="/editar_perfil" element={<Editar_perfil />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/restablecer_contraseña" element={<Restablecer_contraseña />}></Route>
-          <Route path="/home" element={<Home />}></Route>
-          <Route path="/perfil" element={<Perfil />}></Route>
+          <Route path="/home/:username" element={<Home />}></Route>
+          <Route path="/perfil/:username" element={<Perfil />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
       </BrowserRouter>

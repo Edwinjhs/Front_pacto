@@ -24,8 +24,9 @@ function handleLoginFormSubmit(event) {
 				}
 			}).then(response => {
 				if (response.status === 200) {
+					const username = response.data.username;
 					// Update the current page's location
-					window.location.href = '/home';
+					window.location.href = '/home/' + username;
 				}
 				console.log(response);
 			}).catch(error => {

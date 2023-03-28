@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Editar_perfil from '../editar_perfil/editar_perfil';
 
-const ModalLogin = ({ show, handleClose }) => {
+const ModalLogin = ({ show, handleClose, usuario }) => {
 
 
     return (
@@ -12,16 +12,9 @@ const ModalLogin = ({ show, handleClose }) => {
                 <Modal.Title>Actualizar perfil</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Editar_perfil />
+                <Editar_perfil usuario={usuario}/>
             </Modal.Body>
-            <Modal.Footer>
-                <Button variant="primary" onClick={handleClose}>
-                    Guardar cambios
-                </Button>
-                <Button variant="secondary" onClick={handleClose}>
-                    Cancelar
-                </Button>
-            </Modal.Footer>
+
         </Modal>
     );
 };
