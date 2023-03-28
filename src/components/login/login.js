@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../img/cropped-logo_positivo.png';
 import { faRightToBracket, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import axios from 'axios';
@@ -10,8 +10,8 @@ import axios from 'axios';
 function handleLoginFormSubmit(event) {
 	event.preventDefault();
 	const form = event.target;
-    const form_data = new FormData(form);
-	
+	const form_data = new FormData(form);
+
 	axios
 	.post('http://localhost:8000/token',
 		form_data
@@ -27,21 +27,22 @@ function handleLoginFormSubmit(event) {
 				// Update the current page's location
 				window.location.href = '/home';
 			}
+			console.log(response);
 		}).catch(error => {
 			console.log(error);
 		});
 	})
 }
-	// En este ejemplo, se llama al endpoint /token para autenticar al usuario y obtener el token. 
-	// Luego, se extrae el token de la respuesta y se utiliza en una solicitud GET al endpoint /api/users/me. 
-	// El token se incluye en el encabezado Authorization con el prefijo "Bearer".
+// En este ejemplo, se llama al endpoint /token para autenticar al usuario y obtener el token. 
+// Luego, se extrae el token de la respuesta y se utiliza en una solicitud GET al endpoint /api/users/me. 
+// El token se incluye en el encabezado Authorization con el prefijo "Bearer".
 
 
 class Login extends React.Component {
 	render() {
 		return (
-		<div>
-			<Header />
+			<div>
+				<Header />
 				<main role="main" className="flex-shrink-0 mt-5 mb-5">
 					<section className="">
 						<div className="container h-custom">
@@ -69,14 +70,12 @@ class Login extends React.Component {
 											</div>
 										</div>
 										<div className="text-center text-lg-center mt-4 pt-2">
-											<button type="submit"  className="btn-lg color-button"git><FontAwesomeIcon icon={faRightToBracket} /> Iniciar sesión</button>
+											<button type="submit" className="btn-lg color-button" git ><FontAwesomeIcon icon={faRightToBracket} /> Iniciar sesión</button>
 											<div className="form-outline mb-3">
 												<a href="/restablecer_contraseña" className="text-body">¿Olvidó la contraseña?</a>
 											</div>
 											<p className="small fw-bold mt-2 pt-1 mb-0">¿No tiene una cuenta?</p>
-											{/* <link to="/signup"> */}
-											 <button  type="button" id="btn-login"  className="btn-lg color-button"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>											
-											{/* </link> */}
+											<button href="/signup" type="button" id="btn-login"  className="btn-lg color-button"><FontAwesomeIcon icon={faUserPlus} /> Registrarse</button>											
 										</div>
 									</form>
 								</div>
@@ -84,8 +83,8 @@ class Login extends React.Component {
 						</div>
 					</section>
 				</main>
-			<Footer />
-		</div>		
+				<Footer />
+			</div>
 		)
 	}
 }
